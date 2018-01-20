@@ -1,9 +1,6 @@
 #include <gb/gb.h>
+#include <main.h>
 #include <stdio.h>
-
-void startScreen();
-void displaySprite();
-void runGame();
 
 //Created with GBTD, exported to .c with options from: 0, to: 0, label: smile
 unsigned char smile[] = {
@@ -38,22 +35,3 @@ void displaySprite(){
 void runGame(){
 
 }
-
-
-
-/*
-Things to do:
--Start screen
--Dino movement
-	-Jump
-	-Duck
--Score
--Enemies
-	-types of enemies
-		-bird
-		-cactus
-	-movement
-	-collision detection
--Game over
--Pause
-*/

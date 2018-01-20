@@ -1,3 +1,11 @@
+# Gameboy specific
+*.sav
+*.gb
+
+# Project specific
+/images
+notes.rtf
+
 # Prerequisites
 *.d
 
