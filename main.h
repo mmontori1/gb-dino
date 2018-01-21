@@ -1,8 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-void startScreen();
-void displaySprite();
-void runGame();
+void input();
+void pause();
 
 #endif

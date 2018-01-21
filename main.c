@@ -1,37 +1,44 @@
 #include <gb/gb.h>
 #include <main.h>
+#include <sprites.h>
 #include <stdio.h>
 
-//Created with GBTD, exported to .c with options from: 0, to: 0, label: smile
-unsigned char smile[] = {
-  0x3C,0x3C,0x42,0x42,0x81,0x81,0xA5,0xA5,
-  0x81,0x81,0x81,0xA5,0x42,0x5A,0x3C,0x3C
-};
-
 void main() {
-	startScreen();
-}
-
-void startScreen(){
-	printf("Welcome to GAMEBOY\nProgramming");
-    printf("\nPress Start");
-    waitpad(J_START);  // other keys are J_A, J_UP, J_SELECT, etc.
-    printf("\nIsn't it easy!");
-    displaySprite();
-}
-
-void displaySprite(){
-	int x = 55; // Our beginning x coord
-	int y = 75; // Our beginning y coord
+	int i = 0;
+	int x = 8;
+	int y = 152;
 	
 	SPRITES_8x8;
-	set_sprite_data(0, 0, smile);
-	set_sprite_tile(0, 0);
-	move_sprite(0, x, y); // Move sprite to our predefined x and y coords
+	set_sprite_data(0, 2, bg);
+	while(i < 10){
+		set_sprite_tile(i, 0);
+		move_sprite(i, x + 8 * i, y);
+		++i;
+	}
 
 	SHOW_SPRITES;
+	while(1){
+		input();
+		i = 0;
+		++x;
+		while(i < 10){
+			move_sprite(i, x + 8 * i, y);
+			++i;
+		}
+		delay(10);
+	}
 }
 
-void runGame(){
+void input(){
+	switch(joypad()) {
+		case J_START :
+			pause();
+			break;
+	}
+}
 
+void pause(){
+	waitpadup();
+	waitpad(J_START);
+	waitpadup();
 }
