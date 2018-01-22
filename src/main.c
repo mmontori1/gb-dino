@@ -10,11 +10,7 @@ void main() {
 	
 	SPRITES_8x8;
 	set_sprite_data(0, 2, bg);
-	while(i < 10){
-		set_sprite_tile(i, 0);
-		move_sprite(i, x + 8 * i, y);
-		++i;
-	}
+	set_sprite_tile(0, 0);
 
 	SHOW_SPRITES;
 	while(1){

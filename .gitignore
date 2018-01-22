@@ -3,7 +3,7 @@
 *.gb
 
 # Project specific
-/images
+/resources
 notes.rtf
 
 # Prerequisites
