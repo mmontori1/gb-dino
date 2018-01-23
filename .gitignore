@@ -3,6 +3,7 @@
 *.gb
 
 # Project specific
+/dev
 /resources
 notes.rtf
 

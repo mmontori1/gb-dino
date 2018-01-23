@@ -5,41 +5,19 @@
 #include <stdio.h>
 
 void main() {
-	int i = 0;
+	int frame = 0;
+
+	DISPLAY_ON;
 	game_init();
 
 	while(1){
 		wait_vbl_done();
 		input();
-		if(i != clock()){
-			i = clock();
+		if(frame != clock()){
+			frame = clock();
 			scroll_bkg(1, 0);
 		}
 	}
-}
-
-void sprites(){
-	/*
-	int i = 0;
-	int x = 8;
-	int y = 152;
-	
-	SPRITES_8x8;
-	set_sprite_data(0, 2, bg);
-	set_sprite_tile(0, 0);
-
-	SHOW_SPRITES;
-	while(1){
-		input();
-		i = 0;
-		++x;
-		while(i < 10){
-			move_sprite(i, x + 8 * i, y);
-			++i;
-		}
-		delay(10);
-	}
-	*/
 }
 
 void input(){
@@ -71,8 +49,6 @@ void update_switches(){
 }
 
 void game_init(){	
-	DISPLAY_ON;
-
 	set_bkg_data(0, 7, bg_data);
 	set_bkg_tiles(0, 0, 36, 18, ground);
 	update_switches();
