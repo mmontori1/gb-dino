@@ -56,6 +56,5 @@ void pause(){
 }
 
 void clrbkg(){
-	set_bkg_data(0, 0, blankTile);
-	set_bkg_tiles(0, 0, 20, 18, blank);
+	set_bkg_tiles(0, 0, 40, 18, blank);
 }
