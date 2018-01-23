@@ -1,17 +1,37 @@
 #include <gb/gb.h>
 #include <main.h>
+#include <time.h>
 #include <sprites.h>
 #include <stdio.h>
 
 void main() {
-	DISPLAY_ON;
+	int i = 0;
+	// DISPLAY_ON;
 
 	game_init();
 
+	// set_bkg_data(0, 12, mh);
+	// set_bkg_tiles(
+	// 	0,
+	// 	9, 
+	// 	16, 
+	// 	1, 
+	// 	mh_map
+	// );
+	update_switches();
+
 	while(1){
+		wait_vbl_done();
 		input();
-		scroll_bkg(1, 0);
-		delay(15);
+		// printf("%d\n", clock() % 10);
+		if(i != clock()){
+			i = clock();
+			scroll_bkg(1, 0);
+		}
+		// else {
+
+		// }
+		// delay(15);
 	}
 }
 
@@ -57,7 +77,8 @@ void pause(){
 }
 
 void clr_bkg(){
-	set_bkg_tiles(0, 0, 40, 18, blank);
+	set_bkg_tiles(0, 0, 36, 18, blank);
+	SHOW_BKG;
 }
 
 void update_switches(){
@@ -70,9 +91,9 @@ void game_init(){
 	set_bkg_data(0, 7, bg_data);
 	set_bkg_tiles(
 		0,
-		screen_height - ground_height, 
-		screen_width * 2, 
-		ground_height, 
+		0, 
+		36, 
+		18, 
 		ground
 	);
 	update_switches();
