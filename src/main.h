@@ -3,5 +3,6 @@
 
 void input();
 void pause();
+void clrbkg();
 
 #endif

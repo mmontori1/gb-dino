@@ -4,6 +4,19 @@
 #include <stdio.h>
 
 void main() {
+	DISPLAY_ON;
+	// set_bkg_data(0, 1, blankTile);
+	set_bkg_data(0, 7, tiles);
+	set_bkg_tiles(0, 0, 40, 18, ground);
+	SHOW_BKG;
+	while(1){
+		input();
+		scroll_bkg(1, 0);
+		delay(15);
+	}
+}
+
+void sprites(){
 	int i = 0;
 	int x = 8;
 	int y = 152;
@@ -30,6 +43,9 @@ void input(){
 		case J_START :
 			pause();
 			break;
+		case J_SELECT :
+			clrbkg();
+			break;
 	}
 }
 
@@ -37,4 +53,9 @@ void pause(){
 	waitpadup();
 	waitpad(J_START);
 	waitpadup();
+}
+
+void clrbkg(){
+	set_bkg_data(0, 0, blankTile);
+	set_bkg_tiles(0, 0, 20, 18, blank);
 }
