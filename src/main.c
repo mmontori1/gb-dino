@@ -5,10 +5,9 @@
 
 void main() {
 	DISPLAY_ON;
-	// set_bkg_data(0, 1, blankTile);
-	set_bkg_data(0, 7, tiles);
-	set_bkg_tiles(0, 0, 40, 18, ground);
-	SHOW_BKG;
+
+	game_init();
+
 	while(1){
 		input();
 		scroll_bkg(1, 0);
@@ -17,6 +16,7 @@ void main() {
 }
 
 void sprites(){
+	/*
 	int i = 0;
 	int x = 8;
 	int y = 152;
@@ -36,6 +36,7 @@ void sprites(){
 		}
 		delay(10);
 	}
+	*/
 }
 
 void input(){
@@ -44,7 +45,7 @@ void input(){
 			pause();
 			break;
 		case J_SELECT :
-			clrbkg();
+			clr_bkg();
 			break;
 	}
 }
@@ -55,6 +56,24 @@ void pause(){
 	waitpadup();
 }
 
-void clrbkg(){
+void clr_bkg(){
 	set_bkg_tiles(0, 0, 40, 18, blank);
+}
+
+void update_switches(){
+	HIDE_WIN;
+	SHOW_SPRITES;
+	SHOW_BKG;
+}
+
+void game_init(){
+	set_bkg_data(0, 7, bg_data);
+	set_bkg_tiles(
+		0,
+		screen_height - ground_height, 
+		screen_width * 2, 
+		ground_height, 
+		ground
+	);
+	update_switches();
 }

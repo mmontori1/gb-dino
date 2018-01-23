@@ -3,6 +3,8 @@
 
 void input();
 void pause();
-void clrbkg();
+void clr_bkg();
+void update_switches();
+void game_init();
 
 #endif
