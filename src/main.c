@@ -6,32 +6,15 @@
 
 void main() {
 	int i = 0;
-	// DISPLAY_ON;
-
 	game_init();
-
-	// set_bkg_data(0, 12, mh);
-	// set_bkg_tiles(
-	// 	0,
-	// 	9, 
-	// 	16, 
-	// 	1, 
-	// 	mh_map
-	// );
-	update_switches();
 
 	while(1){
 		wait_vbl_done();
 		input();
-		// printf("%d\n", clock() % 10);
 		if(i != clock()){
 			i = clock();
 			scroll_bkg(1, 0);
 		}
-		// else {
-
-		// }
-		// delay(15);
 	}
 }
 
@@ -78,7 +61,7 @@ void pause(){
 
 void clr_bkg(){
 	set_bkg_tiles(0, 0, 36, 18, blank);
-	SHOW_BKG;
+	update_switches();
 }
 
 void update_switches(){
@@ -87,14 +70,10 @@ void update_switches(){
 	SHOW_BKG;
 }
 
-void game_init(){
+void game_init(){	
+	DISPLAY_ON;
+
 	set_bkg_data(0, 7, bg_data);
-	set_bkg_tiles(
-		0,
-		0, 
-		36, 
-		18, 
-		ground
-	);
+	set_bkg_tiles(0, 0, 36, 18, ground);
 	update_switches();
 }
