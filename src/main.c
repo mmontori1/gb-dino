@@ -1,20 +1,21 @@
+#include <stdio.h>
 #include <gb/gb.h>
 #include <main.h>
 #include <time.h>
 #include <sprites.h>
-#include <stdio.h>
 
 void main() {
 	int frame = 0;
+	int time = 0;
 
 	DISPLAY_ON;
 	game_init();
-
 	while(1){
 		wait_vbl_done();
 		input();
-		if(frame != clock()){
-			frame = clock();
+		time = clock();
+		if(frame != time){
+			frame = time;
 			scroll_bkg(1, 0);
 		}
 	}
