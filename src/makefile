@@ -1,10 +1,17 @@
 # Gameboy Compiler
-CC = lcc
+CC = lcc -Wa-l -Wl-m
+
+BIN = main.gb
+OBJS = main.o global.o game.o background.o
 
 # Compile and Assemble C Source Files into Object Files
-gb: main.c *.h
-	@$(CC) -o main.gb main.c *.h
+all: $(BIN)
+	@
+
+$(BIN): $(OBJS)
+	@$(CC) -o $(BIN) $(OBJS)
 
 # Clean Up Executables
 clean:
-	@rm -f *.gb *.sav
+	@rm -f $(BIN) $(OBJS) *~ *.sav *.lst *.map
+	

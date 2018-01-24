@@ -1,6 +1,8 @@
 # Gameboy specific
 *.sav
 *.gb
+*.lst
+*.map
 
 # Project specific
 /dev
