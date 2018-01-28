@@ -1,21 +1,33 @@
 #include <gb/gb.h>
 #include <time.h>
 #include <global.h>
-#include <bg_data.h>
+#include <data.h>
 #include <background.h>
 
 void game_bkg(){
 	set_bkg_data(0, 8, bg_data);
-	set_bkg(GAME);
+	draw_bkg(GAME);
 }
 
-void set_bkg(enum Flag flag_in){
+void draw_bkg(enum Flag flag_in){
 	switch(flag_in){
 		case GAME:
-			set_bkg_tiles(0, 0, 36, 18, ground);
+			set_bkg_tiles(
+				0, 
+				0, 
+				screen_wrap_width, 
+				screen_height, 
+				ground
+			);
 			break;
 		case CLEAR:
-			set_bkg_tiles(0, 0, 36, 18, blank);
+			set_bkg_tiles(
+				0, 
+				0, 
+				screen_wrap_width, 
+				screen_height, 
+				blank
+			);
 			break;
 	}
 }

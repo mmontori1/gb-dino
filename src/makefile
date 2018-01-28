@@ -2,7 +2,7 @@
 CC = lcc -Wa-l -Wl-m
 
 BIN = main.gb
-OBJS = main.o global.o game.o background.o
+OBJS = main.o global.o game.o background.o sprites.o data.o
 
 # Compile and Assemble C Source Files into Object Files
 all: $(BIN)

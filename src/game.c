@@ -3,6 +3,7 @@
 #include <main.h>
 #include <game.h>
 #include <global.h>
+#include <sprites.h>
 #include <background.h>
 
 void run_game(){
@@ -18,6 +19,7 @@ void run_game(){
 
 void game_init(){
 	game_bkg();
+	game_sprites();
 	update_switches();
 }
 
@@ -27,7 +29,7 @@ void input(){
 			pause();
 			break;
 		case J_SELECT :
-			set_bkg(CLEAR);
+			draw_bkg(CLEAR);
 			break;
 	}
 }
