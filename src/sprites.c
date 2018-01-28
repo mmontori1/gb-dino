@@ -1,6 +1,7 @@
 #include <gb/gb.h>
 #include <sprites.h>
 #include <global.h>
+#include <data.h>
 
 void game_sprites(){
 	draw_sprites();

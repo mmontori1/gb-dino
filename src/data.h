@@ -9,6 +9,6 @@ extern unsigned char blank[];
 extern unsigned char ground[];
 
 //sprite tiles
-
+extern unsigned char hacker[];
 
 #endif
