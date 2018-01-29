@@ -1,12 +1,12 @@
 #ifndef DATA_H
 #define DATA_H
 
-//background data
-extern unsigned char bg_data[];
-
 //background tiles
-extern unsigned char blank[];
-extern unsigned char ground[];
+extern unsigned char ground_tiles[];
+
+//background map
+extern unsigned char ground_map[];
+extern unsigned char blank_map[];
 
 //sprite tiles
 extern unsigned char hacker[];

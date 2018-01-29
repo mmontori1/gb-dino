@@ -5,7 +5,8 @@
 #include <background.h>
 
 void game_bkg(){
-	set_bkg_data(0, 8, bg_data);
+	set_bkg_data(0, 2, ground_tiles);
+	draw_bkg(CLEAR);
 	draw_bkg(GAME);
 }
 
@@ -14,10 +15,10 @@ void draw_bkg(enum Flag flag_in){
 		case GAME:
 			set_bkg_tiles(
 				0, 
-				0, 
+				16, 
 				screen_wrap_width, 
-				screen_height, 
-				ground
+				ground_height, 
+				ground_map
 			);
 			break;
 		case CLEAR:
@@ -26,7 +27,7 @@ void draw_bkg(enum Flag flag_in){
 				0, 
 				screen_wrap_width, 
 				screen_height, 
-				blank
+				blank_map
 			);
 			break;
 	}
