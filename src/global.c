@@ -1,4 +1,4 @@
-#include <global.h>
+#include "global.h"
 
 int i;
 int x;

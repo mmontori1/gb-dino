@@ -1,10 +1,10 @@
 #include <gb/gb.h>
 #include <time.h>
-#include <main.h>
-#include <game.h>
-#include <global.h>
-#include <sprites.h>
-#include <background.h>
+#include "main.h"
+#include "game.h"
+#include "global.h"
+#include "sprites.h"
+#include "background.h"
 
 void run_game(){
 

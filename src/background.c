@@ -1,8 +1,8 @@
 #include <gb/gb.h>
 #include <time.h>
-#include <global.h>
-#include <data.h>
-#include <background.h>
+#include "global.h"
+#include "data.h"
+#include "background.h"
 
 void game_bkg(){
 	set_bkg_data(0, 2, ground_tiles);
