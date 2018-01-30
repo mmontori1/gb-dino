@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <gb/gb.h>
 #include <time.h>
 #include "main.h"
@@ -13,6 +14,7 @@ void run_game(){
 	while(1){
 		wait_vbl_done();
 		input();
+		draw_sprites();
 		move_bkg();
 	}
 }

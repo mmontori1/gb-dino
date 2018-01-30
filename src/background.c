@@ -34,9 +34,10 @@ void draw_bkg(enum Flag flag_in){
 }
 
 void move_bkg(){
-	t = clock();
-	if(frame != t){
-		frame = t;
+	t = clock() / 3;
+
+	if(frame2 != t){
+		frame2 = t;
 		scroll_bkg(1, 0);
 	}
 }
