@@ -42,7 +42,7 @@ void draw_sprites(){
 			set_sprite_tile(4, hacker_botleft_data[a]);
 			set_sprite_tile(5, hacker_botright_data[a]);
 			a = (a + 1 == 8) ? 0 : a + 1;
-			
+
 			// if(a % 2 == 0){
 			// 	p = (a < 4) ? p + 1 : p - 1;
 			// }
@@ -64,24 +64,24 @@ void draw_sprites(){
 }
 
 void jump(){
-	t = clock() / 2;
+	t = clock();
 	if(frame3 != t){
 		frame3 = t;
-		jump_flag = (j + 1 == 30) ? 0 : 1;
-		if((j >= 0 && j < 5) || (j >= 25 && j < 30)){
+		jump_flag = (j + 1 == 40) ? 0 : 1;
+		if((j >= 0 && j < 7) || (j >= 33 && j < 40)){
 			k = 3;
 		}
-		else if((j >= 5 && j < 10) || (j >= 20 && j < 25)){
+		else if((j >= 7 && j < 13) || (j >= 27 && j < 33)){
 			k = 2;
 		}
-		else if((j >= 10 && j < 14) || (j >= 16 && j < 20)){
+		else if((j >= 13 && j < 18) || (j >= 22 && j < 27)){
 			k = 1;
 		}
 		else {
 			k = 0;
 		}
-		p = (j < 15) ? p - k : p + k;
-		j = (j + 1 == 30) ? 0 : j + 1;
+		p = (j < 20) ? p - k : p + k;
+		j = (j + 1 == 40) ? 0 : j + 1;
 
 		for(i = 0; i < 6; ++i){
 			move_sprite(i, x + 8 * (i % 2), y + 8 * (i / 2) + p);
