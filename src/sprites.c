@@ -13,7 +13,9 @@ UINT8 hacker_botright_data[8] = {13, 15, 17, 19, 13, 21, 23, 21};
 void game_sprites(){
 	SPRITES_8x8;
 	a = 0;
-	p = -1;
+	j = 0;
+	k = 0;
+	p = 0;
 	x = 32;
 	y = 120;
 	set_sprite_data(0, 24, hacker);
@@ -34,19 +36,55 @@ void draw_sprites(){
 	t = clock() / 5;
 	if(frame1 != t){
 		frame1 = t;
-		set_sprite_tile(2, hacker_midleft_data[a]);
-		set_sprite_tile(3, hacker_midright_data[a]);
-		set_sprite_tile(4, hacker_botleft_data[a]);
-		set_sprite_tile(5, hacker_botright_data[a]);
-
-		if(a % 2 == 0){
-			p = (a < 4) ? p + 1 : p - 1;
+		if(!jump_flag){
+			set_sprite_tile(2, hacker_midleft_data[a]);
+			set_sprite_tile(3, hacker_midright_data[a]);
+			set_sprite_tile(4, hacker_botleft_data[a]);
+			set_sprite_tile(5, hacker_botright_data[a]);
+			a = (a + 1 == 8) ? 0 : a + 1;
+			
+			// if(a % 2 == 0){
+			// 	p = (a < 4) ? p + 1 : p - 1;
+			// }
+			// for(i = 0; i < 6; ++i){
+			// 	move_sprite(i, x + 8 * (i % 2), y + 8 * (i / 2) + p);
+			// }
 		}
+		else {
+			set_sprite_tile(2, hacker_midleft_data[5]);
+			set_sprite_tile(3, hacker_midright_data[5]);
+			set_sprite_tile(4, hacker_botleft_data[5]);
+			set_sprite_tile(5, hacker_botright_data[5]);
+			a = 0;
+		}
+	}
+	if(jump_flag){
+		jump();
+	}
+}
+
+void jump(){
+	t = clock() / 2;
+	if(frame3 != t){
+		frame3 = t;
+		jump_flag = (j + 1 == 30) ? 0 : 1;
+		if((j >= 0 && j < 5) || (j >= 25 && j < 30)){
+			k = 3;
+		}
+		else if((j >= 5 && j < 10) || (j >= 20 && j < 25)){
+			k = 2;
+		}
+		else if((j >= 10 && j < 14) || (j >= 16 && j < 20)){
+			k = 1;
+		}
+		else {
+			k = 0;
+		}
+		p = (j < 15) ? p - k : p + k;
+		j = (j + 1 == 30) ? 0 : j + 1;
 
 		for(i = 0; i < 6; ++i){
 			move_sprite(i, x + 8 * (i % 2), y + 8 * (i / 2) + p);
 		}
-
-		a = (a + 1 == 8) ? 0 : a + 1;
 	}
 }

@@ -32,6 +32,8 @@ void input(){
 			break;
 		case J_SELECT :
 			draw_bkg(CLEAR);
+		case J_A : 
+			jump_flag = 1;
 			break;
 	}
 }

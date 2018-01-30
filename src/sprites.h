@@ -3,5 +3,6 @@
 
 void game_sprites();
 void draw_sprites();
+void jump();
 
 #endif
