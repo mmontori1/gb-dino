@@ -14,6 +14,8 @@ enum Flag{START, GAME, CLEAR};
 extern UINT16 a;
 extern UINT8 i;
 extern UINT8 j;
+extern INT8 p;
+extern INT8 q;
 extern UINT8 x;
 extern UINT8 y;
 extern UINT16 t;

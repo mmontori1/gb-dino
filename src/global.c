@@ -3,6 +3,8 @@
 UINT16 a;
 UINT8 i;
 UINT8 j;
+INT8 p;
+INT8 q;
 UINT8 x;
 UINT8 y;
 UINT16 t;
