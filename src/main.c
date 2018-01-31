@@ -9,4 +9,5 @@ void main() {
 
 void init() {
 	DISPLAY_ON;
+	SPRITES_8x8;
 }

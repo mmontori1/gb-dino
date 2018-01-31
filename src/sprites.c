@@ -18,8 +18,6 @@ UINT8 *hacker_data[4] = {
 };
 
 void game_sprites(){
-	SPRITES_8x8;
-
 	// move sprite specific globals in-file to avoid errors: a, j, k, p
 	a = 0;
 	j = 0;
@@ -64,7 +62,7 @@ void set_hacker_body(UINT8 frame){
 	}
 }
 
-/* MIGRATE ALL BELOW TO PHYSICS.C EVENTUALLY */
+/* MIGRATE ALL BELOW TO PHYSICS.C OR PLAYER.C EVENTUALLY */
 
 void move_hacker(UINT8 push){
 	// move hacker on screen
@@ -78,13 +76,13 @@ void jump(){
 	if(frame3 != t){
 		frame3 = t;
 		jump_flag = (j + 1 == 40) ? 0 : 1;
-		if((j >= 0 && j < 7) || (j >= 33 && j < 40)){
+		if((j >= 0 && j < 7) || (j >= 40 - 7 && j < 40)){
 			k = 3;
 		}
-		else if((j >= 7 && j < 13) || (j >= 27 && j < 33)){
+		else if((j >= 7 && j < 12) || (j >= 40 - 12 && j < 40 - 7)){
 			k = 2;
 		}
-		else if((j >= 13 && j < 18) || (j >= 22 && j < 27)){
+		else if((j >= 12 && j < 17) || (j >= 40 - 17 && j < 40 - 12)){
 			k = 1;
 		}
 		else {

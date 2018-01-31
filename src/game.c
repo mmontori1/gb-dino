@@ -8,7 +8,6 @@
 #include "background.h"
 
 void run_game(){
-
 	game_init();
 
 	while(1){
