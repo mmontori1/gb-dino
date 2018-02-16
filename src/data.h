@@ -10,5 +10,7 @@ extern unsigned char blank_map[];
 
 //sprite tiles
 extern unsigned char hacker[];
+extern unsigned char fly[];
+extern unsigned char cactus[];
 
 #endif

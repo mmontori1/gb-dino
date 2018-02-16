@@ -17,14 +17,22 @@ UINT8 *hacker_data[4] = {
 	&hacker_botright_data
 };
 
+UINT8 cactus_x;
+
 void game_sprites(){
 	// move sprite specific globals in-file to avoid errors: a, j, k, p
 	a = 0;
 	j = 0;
 	k = 0;
 	p = 0;
+	cactus_x = 140;
 	set_sprite_data(0, 24, hacker);
-	
+	set_sprite_data(24, 33, fly);
+	set_sprite_data(33, 37, cactus);
+	for(i = 0; i < 4; ++i){
+		set_sprite_tile(6 + i, 33 + i);
+		move_sprite(6 + i, cactus_x + 8 * (i % 2), 128 + 8 * (i / 2));
+	}
 	set_hacker_head();
 	set_hacker_body(0);
 
@@ -42,6 +50,11 @@ void draw_sprites(){
 		else {
 			set_hacker_body(5);
 			a = 0;
+		}
+
+		cactus_x = cactus_x - 1;
+		for(i = 0; i < 6; ++i){
+			move_sprite(6 + i, cactus_x + 8 * (i % 2), 128 + 8 * (i / 2));
 		}
 	}
 	if(jump_flag){
