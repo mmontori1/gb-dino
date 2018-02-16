@@ -75,7 +75,7 @@ void jump(){
 	t = clock();
 	if(frame3 != t){
 		frame3 = t;
-		jump_flag = (j + 1 == 40) ? 0 : 1;
+
 		if((j >= 0 && j < 7) || (j >= 40 - 7 && j < 40)){
 			k = 3;
 		}
@@ -88,6 +88,8 @@ void jump(){
 		else {
 			k = 0;
 		}
+		
+		jump_flag = (j + 1 == 40) ? 0 : 1;
 		p = (j < 20) ? p - k : p + k;
 		j = (j + 1 == 40) ? 0 : j + 1;
 
