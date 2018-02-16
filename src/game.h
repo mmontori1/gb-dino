@@ -3,6 +3,7 @@
 
 void run_game();
 void game_init();
+void update();
 void input();
 void pause();
 void update_switches();

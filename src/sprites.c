@@ -40,25 +40,13 @@ void game_sprites(){
 }
 
 void draw_sprites(){
-	t = clock() / 5;
-	if(frame1 != t){
-		frame1 = t;
-		if(!jump_flag){
-			set_hacker_body(a);
-			a = (a + 1 == 8) ? 0 : a + 1;
-		}
-		else {
-			set_hacker_body(5);
-			a = 0;
-		}
-
-		cactus_x = cactus_x - 1;
-		for(i = 0; i < 6; ++i){
-			move_sprite(6 + i, cactus_x + 8 * (i % 2), 128 + 8 * (i / 2));
-		}
+	if(!jump_flag){
+		set_hacker_body(a);
+		a = (a + 1 == 8) ? 0 : a + 1;
 	}
-	if(jump_flag){
-		jump();
+	else {
+		set_hacker_body(5);
+		a = 0;
 	}
 }
 
@@ -85,10 +73,7 @@ void move_hacker(UINT8 push){
 }
 
 void jump(){
-	t = clock();
-	if(frame3 != t){
-		frame3 = t;
-
+	if(jump_flag){
 		if((j >= 0 && j < 7) || (j >= 40 - 7 && j < 40)){
 			k = 3;
 		}

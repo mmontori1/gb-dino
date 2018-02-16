@@ -13,8 +13,7 @@ void run_game(){
 	while(1){
 		wait_vbl_done();
 		input();
-		draw_sprites();
-		move_bkg();
+		update();
 	}
 }
 
@@ -22,6 +21,26 @@ void game_init(){
 	game_bkg();
 	game_sprites();
 	update_switches();
+}
+
+void update(){
+	t = clock();
+	if(frame1 != t){
+		frame1 = t;
+		jump();
+	}
+
+	t = clock() / 2;
+	if(frame2 != t){
+		frame2 = t;
+		scroll_bkg(1, 0);
+	}
+
+	t = clock() / 5;
+	if(frame5 != t){
+		frame5 = t;
+		draw_sprites();
+	}
 }
 
 void input(){

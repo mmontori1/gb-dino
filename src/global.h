@@ -29,7 +29,7 @@ extern UINT8 y;
 extern UINT16 t;
 extern UINT16 frame1;
 extern UINT16 frame2;
-extern UINT16 frame3;
+extern UINT16 frame5;
 
 extern BOOLEAN jump_flag;
 

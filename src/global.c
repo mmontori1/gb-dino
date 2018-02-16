@@ -15,6 +15,6 @@ UINT8 y;
 UINT16 t;
 UINT16 frame1;
 UINT16 frame2;
-UINT16 frame3;
+UINT16 frame5;
 
 BOOLEAN jump_flag;

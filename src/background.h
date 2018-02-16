@@ -3,6 +3,5 @@
 
 void game_bkg();
 void draw_bkg(enum Flag flag_in);
-void move_bkg();
 
 #endif
