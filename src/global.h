@@ -11,9 +11,6 @@ enum Flag{START, GAME, CLEAR};
 
 #define ground_height 2
 
-#define hacker_x 32
-#define hacker_y 120
-
 extern UINT16 a;
 
 extern UINT8 i;

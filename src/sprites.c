@@ -4,6 +4,7 @@
 #include "sprites.h"
 #include "global.h"
 #include "data.h"
+#include "object.h"
 
 // maybe move initialization of arrays into init func?
 UINT8 hacker_midleft_data[8] = {3, 5, 7, 3, 3, 8, 10, 3};
@@ -17,23 +18,30 @@ UINT8 *hacker_data[4] = {
 	&hacker_botright_data
 };
 
+struct object o_player;
+struct object o_cactus;
+
 void game_sprites(){
 	// move sprite specific globals in-file to avoid errors: a, j, k, p
 	a = 0;
 	j = 0;
 	k = 0;
 	p = 0;
+
+	o_player.x = 32;
+	o_player.y = 120;
+	o_cactus.x = 140;
+	o_cactus.y = 128;
+
 	set_sprite_data(0, 24, hacker);
 	set_sprite_data(24, 33, fly);
 	set_sprite_data(33, 37, cactus);
-	for(i = 0; i < 4; ++i){
-		set_sprite_tile(6 + i, 33 + i);
-		move_sprite(6 + i, 140 + 8 * (i % 2), 128 + 8 * (i / 2));
-	}
 	set_hacker_head();
 	set_hacker_body(0);
+	set_cactus();
 
 	move_hacker(0);
+	move_cactus(0);
 }
 
 void draw_sprites(){
@@ -63,9 +71,22 @@ void set_hacker_body(UINT8 frame){
 /* MIGRATE ALL BELOW TO PHYSICS.C OR PLAYER.C EVENTUALLY */
 
 void move_hacker(UINT8 push){
-	// move hacker on screen
+	o_player.y += push;
 	for(i = 0; i < 6; ++i){
-		move_sprite(i, hacker_x + 8 * (i % 2), hacker_y + 8 * (i / 2) + push);
+		move_sprite(i, o_player.x + 8 * (i % 2), o_player.y + 8 * (i / 2));
+	}
+}
+
+void set_cactus(){
+	for(i = 0; i < 4; ++i){
+		set_sprite_tile(6 + i, 33 + i);
+	}
+}
+
+void move_cactus(UINT8 push){
+	o_cactus.x += push;
+	for(i = 0; i < 4; ++i){
+		move_sprite(6 + i, o_cactus.x + 8 * (i % 2), o_cactus.y + 8 * (i / 2));
 	}
 }
 
@@ -85,7 +106,7 @@ void jump(){
 		}
 		
 		jump_flag = (j + 1 == 40) ? 0 : 1;
-		p = (j < 20) ? p - k : p + k;
+		p = (j < 20) ? -k : k;
 		j = (j + 1 == 40) ? 0 : j + 1;
 
 		move_hacker(p);
