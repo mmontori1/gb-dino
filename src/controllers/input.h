@@ -3,8 +3,10 @@
 
 #include <gb/gb.h>
 #include <stdio.h>
+#include "../models/gameState.h"
 
 void checkInput();
+void setInputs(Action type);
 
 extern void (*start_button) ();
 extern void (*select_button) ();

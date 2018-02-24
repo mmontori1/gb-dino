@@ -29,6 +29,20 @@ void checkInput(){
 	}
 }
 
+void setInputs(Action type){
+	switch(type) {
+		case START :
+			printf("START");
+			break;
+		case GAME :
+			printf("GAME");
+			break;
+		case OVER :
+			printf("OVER");
+			break;
+	}
+}
+
 void (*start_button) ();
 void (*select_button) ();
 void (*up_button) ();

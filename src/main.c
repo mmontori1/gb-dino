@@ -1,16 +1,11 @@
-#include <gb/gb.h>
-#include <stdio.h>
 #include "main.h"
-#include "models/gameState.h"
-#include "models/object.h"
-#include "models/data.h"
-#include "controllers/input.h"
 
 void main() {
 	init();
 	while(1) {
 		// Logic (controllers manipulate models)
 		checkInput();
+
 		// Draw (view draw based on models)
 
 	}
@@ -25,6 +20,7 @@ void init() {
 	DISPLAY_OFF;
 
 	SPRITES_8x8;
+	setState(START);
 	/*
 		* init models
 			-> player, cactus, fly, gameState

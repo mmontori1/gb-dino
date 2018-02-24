@@ -1,7 +1,7 @@
 #ifndef GAMESTATE_H
 #define GAMESTATE_H
 
-#include <asm/types.h>
+#include "helpers/global.h"
 
 /*
 	How to create a flag:
@@ -28,5 +28,7 @@ typedef struct State_s {
 } State;
 
 extern State state;
+
+void setState(Action type);
 
 #endif
