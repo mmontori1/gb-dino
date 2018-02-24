@@ -1,13 +1,35 @@
 #include <gb/gb.h>
+#include <stdio.h>
 #include "main.h"
-#include "game.h"
 
 void main() {
 	init();
-	run_game();
+	printf("hello world");
 }
 
 void init() {
-	DISPLAY_ON;
+	disable_interrupts();
+	DISPLAY_OFF;
+
 	SPRITES_8x8;
+	/*
+		* clear screen 
+			-> draw_sprites(CLEAR)
+			-> draw_bkg(CLEAR)
+		* set game state
+			-> state = START;
+		* sprite data func here
+			-> set_sprites(state)
+		* sprite draw func here
+			-> draw_sprites(state)
+		* bkg data func here
+			-> set_bkg(state)
+		* bkg draw func here
+			-> draw_bkg(state)
+	*/
+	SHOW_BKG;
+	SHOW_SPRITES;
+
+	DISPLAY_ON;
+	enable_interrupts();
 }

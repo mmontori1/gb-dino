@@ -4,8 +4,8 @@
 struct object {
 	UINT8 x;
 	UINT8 y;
-	// UINT8 startTile;
-	// UINT8 numTiles;
+	UINT8 startTile;
+	UINT8 numTiles;
 };
 
 #endif
