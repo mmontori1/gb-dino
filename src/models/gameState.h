@@ -22,6 +22,11 @@ typedef enum Action {
 	CLEAR
 } Action;
 
-Action state;
+typedef struct State_s {
+	Action type;
+	UINT16 highScore;
+} State;
+
+extern State state;
 
 #endif

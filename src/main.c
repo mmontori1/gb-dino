@@ -7,7 +7,6 @@
 
 void main() {
 	init();
-
 	while(1) {
 		// Logic (controllers manipulate models)
 		
@@ -24,22 +23,22 @@ void init() {
 	/*
 		* init models
 			-> player, cactus, fly, gameState
-			-> objectInit(&player, player_x, player_y, 0, 6);
-			-> objectInit(&enemy, enemy_x, cactus_x, 33, 4);
-			-> state = START
+			-> setObject(&player, player_x, player_y, 0, 6);
+			-> setObject(&enemy, enemy_x, cactus_x, 33, 4);
 		* set game state
-			-> state = START;
+			-> state.type = START;
+			-> state.highScore = 0;
 		* sprite data func here
-			-> set_sprites(state)
+			-> set_sprites(state.type)
 		* bkg data func here
-			-> set_bkg(state)
+			-> set_bkg(state.type)
 		* clear screen 
 			-> draw_sprites(CLEAR)
 			-> draw_bkg(CLEAR)
 		* sprite draw func here
-			-> draw_sprites(state)
+			-> draw_sprites(state.type)
 		* bkg draw func here
-			-> draw_bkg(state)
+			-> draw_bkg(state.type)
 	*/
 	SHOW_BKG;
 	SHOW_SPRITES;

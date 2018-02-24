@@ -19,6 +19,6 @@ extern Object player;
 #define cactus_y 128
 #define fly_y 104
 
-void objectInit(Object* temp, UINT8 x, UINT8 y, UINT8 startTile, UINT8 numTiles);
+void setObject(Object* temp, UINT8 x, UINT8 y, UINT8 startTile, UINT8 numTiles);
 
 #endif
