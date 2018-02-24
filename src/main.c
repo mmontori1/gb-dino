@@ -5,7 +5,8 @@ void main() {
 	while(1) {
 		// Logic (controllers manipulate models)
 		checkInput();
-
+		updateLogic();
+		
 		// Draw (view draw based on models)
 
 	}
@@ -20,7 +21,8 @@ void init() {
 	DISPLAY_OFF;
 
 	SPRITES_8x8;
-	setState(START);
+
+	updateState(START);
 	/*
 		* init models
 			-> player, cactus, fly, gameState

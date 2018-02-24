@@ -6,7 +6,7 @@ BIN = main.gb
 OBJS = main.o \
 		helpers/global.o \
 		models/data.o models/object.o models/gameState.o \
-		controllers/input.o controllers/game.o
+		controllers/input.o controllers/start.o controllers/game.o controllers/over.o controllers/state.o
 
 # Compile and Assemble C Source Files into Object Files
 all: $(BIN)

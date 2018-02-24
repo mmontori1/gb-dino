@@ -29,18 +29,15 @@ void checkInput(){
 	}
 }
 
-void setInputs(Action type){
-	switch(type) {
-		case START :
-			printf("START");
-			break;
-		case GAME :
-			printf("GAME");
-			break;
-		case OVER :
-			printf("OVER");
-			break;
-	}
+void clearInputs(){
+	start_button = NULL;
+	select_button = NULL;
+	up_button = NULL;
+	left_button = NULL;
+	right_button = NULL;
+	down_button = NULL;
+	a_button = NULL;
+	b_button = NULL;
 }
 
 void (*start_button) ();

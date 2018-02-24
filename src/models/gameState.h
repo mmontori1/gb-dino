@@ -24,11 +24,9 @@ typedef enum Action {
 
 typedef struct State_s {
 	Action type;
-	UINT16 highScore;
+	UINT16 score;
 } State;
 
 extern State state;
-
-void setState(Action type);
 
 #endif
