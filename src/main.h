@@ -2,5 +2,6 @@
 #define MAIN_H
 
 void init();
+void print();
 
 #endif

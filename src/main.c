@@ -4,15 +4,20 @@
 #include "models/gameState.h"
 #include "models/object.h"
 #include "models/data.h"
+#include "controllers/input.h"
 
 void main() {
 	init();
 	while(1) {
 		// Logic (controllers manipulate models)
-		
+		checkInput();
 		// Draw (view draw based on models)
 
 	}
+}
+
+void print(){
+	printf("hello world!\n");
 }
 
 void init() {

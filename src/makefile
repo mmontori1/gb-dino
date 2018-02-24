@@ -5,6 +5,7 @@ CC = lcc -Wa-l -Wl-m
 BIN = main.gb
 OBJS = main.o \
 		models/data.o models/object.o \
+		controllers/input.o
 
 # Compile and Assemble C Source Files into Object Files
 all: $(BIN)
