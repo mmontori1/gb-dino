@@ -12,10 +12,6 @@ void main() {
 	}
 }
 
-void print(){
-	printf("hello world!\n");
-}
-
 void init() {
 	disable_interrupts();
 	DISPLAY_OFF;

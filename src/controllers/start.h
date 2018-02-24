@@ -5,6 +5,7 @@
 #include "state.h"
 
 #include "../helpers/global.h"
+
 #include "../models/gameState.h"
 
 void setupStart();
