@@ -1,10 +1,19 @@
 #include <gb/gb.h>
 #include <stdio.h>
+#include "models/object.h"
+#include "models/data.h"
 #include "main.h"
 
 void main() {
 	init();
-	printf("hello world");
+	objectInit(&player, 1, 2, 3, 4);
+	printf("%d\n", player.x);
+	while(1) {
+		// Logic (controllers manipulate models)
+
+		// Draw (view draw based on models)
+
+	}
 }
 
 void init() {
