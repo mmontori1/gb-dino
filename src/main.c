@@ -6,11 +6,9 @@
 
 void main() {
 	init();
-	objectInit(&player, 1, 2, 3, 4);
-	printf("%d\n", player.x);
 	while(1) {
 		// Logic (controllers manipulate models)
-
+		
 		// Draw (view draw based on models)
 
 	}
@@ -22,6 +20,10 @@ void init() {
 
 	SPRITES_8x8;
 	/*
+		* init models
+			-> player, cactus, fly, gameState
+			-> objectInit(&player, player_x, player_y, 0, 6);
+			-> objectInit(&enemy, enemy_x, cactus_x, 33, 4);
 		* clear screen 
 			-> draw_sprites(CLEAR)
 			-> draw_bkg(CLEAR)
