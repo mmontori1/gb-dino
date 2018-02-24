@@ -27,17 +27,17 @@ void init() {
 			-> objectInit(&player, player_x, player_y, 0, 6);
 			-> objectInit(&enemy, enemy_x, cactus_x, 33, 4);
 			-> state = START
-		* clear screen 
-			-> draw_sprites(CLEAR)
-			-> draw_bkg(CLEAR)
 		* set game state
 			-> state = START;
 		* sprite data func here
 			-> set_sprites(state)
-		* sprite draw func here
-			-> draw_sprites(state)
 		* bkg data func here
 			-> set_bkg(state)
+		* clear screen 
+			-> draw_sprites(CLEAR)
+			-> draw_bkg(CLEAR)
+		* sprite draw func here
+			-> draw_sprites(state)
 		* bkg draw func here
 			-> draw_bkg(state)
 	*/
