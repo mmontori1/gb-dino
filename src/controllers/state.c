@@ -2,6 +2,7 @@
 
 void updateState(Action type){
 	state.type = type;
+	clearInputs();
 	switch(type){
 		case START :
 			printf("START\n");
