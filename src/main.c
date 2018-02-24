@@ -1,11 +1,13 @@
 #include <gb/gb.h>
 #include <stdio.h>
+#include "main.h"
+#include "models/gameState.h"
 #include "models/object.h"
 #include "models/data.h"
-#include "main.h"
 
 void main() {
 	init();
+
 	while(1) {
 		// Logic (controllers manipulate models)
 		
@@ -24,6 +26,7 @@ void init() {
 			-> player, cactus, fly, gameState
 			-> objectInit(&player, player_x, player_y, 0, 6);
 			-> objectInit(&enemy, enemy_x, cactus_x, 33, 4);
+			-> state = START
 		* clear screen 
 			-> draw_sprites(CLEAR)
 			-> draw_bkg(CLEAR)
