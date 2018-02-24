@@ -9,8 +9,8 @@ extern unsigned char ground_map[];
 extern unsigned char blank_map[];
 
 //sprite tiles
-extern unsigned char hacker[];
-extern unsigned char fly[];
-extern unsigned char cactus[];
+extern unsigned char hacker_tiles[];
+extern unsigned char fly_tiles[];
+extern unsigned char cactus_tiles[];
 
 #endif

@@ -33,9 +33,9 @@ void game_sprites(){
 	o_cactus.x = 140;
 	o_cactus.y = 128;
 
-	set_sprite_data(0, 24, hacker);
-	set_sprite_data(24, 33, fly);
-	set_sprite_data(33, 37, cactus);
+	set_sprite_data(0, 24, hacker_tiles);
+	set_sprite_data(24, 33, fly_tiles);
+	set_sprite_data(33, 37, cactus_tiles);
 	set_hacker_head();
 	set_hacker_body(0);
 	set_cactus();
