@@ -7,4 +7,8 @@
 
 extern UINT8 i;
 
+extern UBYTE VBL_FLAG;
+#define VBL_FLAG_ON VBL_FLAG |= (1 << 0);
+#define VBL_FLAG_OFF VBL_FLAG &= ~(1 << 0);
+
 #endif

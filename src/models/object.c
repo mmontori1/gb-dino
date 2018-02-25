@@ -1,6 +1,8 @@
 #include "object.h"
 
 Object player;
+Object enemyOne;
+Object enemyTwo;
 
 void setObject(Object *temp, UINT8 x, UINT8 y, UINT8 startTile, UINT8 numTiles) {
 	temp->x = x;

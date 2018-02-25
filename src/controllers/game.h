@@ -4,8 +4,11 @@
 #include "input.h"
 #include "state.h"
 
+#include "../models/data.h"
 #include "../models/gameState.h"
+#include "../models/object.h"
 
 void setupGame();
+void setGameData();
 
 #endif

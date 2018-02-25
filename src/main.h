@@ -10,7 +10,7 @@
 #include "controllers/input.h"
 #include "controllers/start.h"
 
+void vblCallback();
 void init();
-void print();
 
 #endif

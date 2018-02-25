@@ -12,6 +12,17 @@ void main() {
 	}
 }
 
+void vblCallback(){
+	if(VBL_FLAG){
+		switch(state.type){
+			case GAME:
+				setGameData();
+				break;
+		}
+		VBL_FLAG_OFF;
+	}
+}
+
 void init() {
 	disable_interrupts();
 	DISPLAY_OFF;
@@ -19,6 +30,7 @@ void init() {
 	SPRITES_8x8;
 
 	updateState(START);
+	add_VBL(vblCallback);
 	/*
 		* init models
 			-> player, cactus, fly, gameState
@@ -39,6 +51,7 @@ void init() {
 		* bkg draw func here
 			-> draw_bkg(state.type)
 	*/
+
 	SHOW_BKG;
 	SHOW_SPRITES;
 

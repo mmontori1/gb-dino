@@ -12,6 +12,9 @@ typedef struct Object_s {
 } Object;
 
 extern Object player;
+extern Object enemyOne;
+extern Object enemyTwo;
+
 #define player_x 32
 #define player_y 120
 
