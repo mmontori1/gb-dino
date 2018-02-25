@@ -1,9 +1,10 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "../models/gameState.h"
+#include "input.h"
+#include "state.h"
 
-#include "../controllers/input.h"
+#include "../models/gameState.h"
 
 void setupGame();
 

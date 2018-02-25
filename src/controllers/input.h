@@ -1,9 +1,6 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-#include <gb/gb.h>
-#include <stdio.h>
-
 #include "../models/gameState.h"
 
 void checkInput();
