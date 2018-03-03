@@ -1,6 +1,9 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <gb/gb.h>
+#include <stdio.h>
+
 #include "helpers/global.h"
 
 #include "models/data.h"

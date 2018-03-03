@@ -6,8 +6,8 @@ void setupGame(){
 	setObject(&player, player_x, player_y, 0, 6);
 	setObject(&enemyOne, enemy_x, 0, 0, 0);
 	setObject(&enemyTwo, enemy_x, 0, 0, 0);
-	
-	VBL_FLAG_ON;
+
+	printf("game\n");
 }
 
 void setGameData(){

@@ -2,8 +2,7 @@
 
 void setupStart(){
 	start_button = startGame;
-
-	VBL_FLAG_ON;
+	printf("start\n");
 }
 
 void startGame(){

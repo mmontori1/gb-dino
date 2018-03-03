@@ -2,7 +2,9 @@
 
 void updateState(Action type){
 	state.type = type;
+	VBL_FLAG_ON;
 	clearInputs();
+	
 	switch(type){
 		case START :
 			setupStart();
