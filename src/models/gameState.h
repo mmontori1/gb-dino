@@ -8,11 +8,13 @@ typedef enum Action {
 	GAME,
 	OVER,
 	CLEAR
+	//PAUSE??
 } Action;
 
 typedef struct State_s {
 	Action type;
 	UINT16 score;
+	void (*setData) ();
 } State;
 
 extern State state;

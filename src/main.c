@@ -9,7 +9,7 @@ void main() {
 		checkInput();
 		updateLogic();
 		
-		// Draw (view draw based on models)
+		// Draw (views draw screen based on models)
 		/*
 			* sprite draw func here
 				-> draw_sprites(state.type)
@@ -24,11 +24,7 @@ void main() {
 // handles applying sprite, window, or background data during vblank interrupt
 void vblCallback(){
 	if(VBL_FLAG){
-		switch(state.type){
-			case GAME:
-				setGameData();
-				break;
-		}
+		if(state.setData != NULL) state.setData();
 		VBL_FLAG_OFF;
 	}
 }
