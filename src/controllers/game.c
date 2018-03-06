@@ -1,7 +1,6 @@
 #include "game.h"
 
 void setupGame(){
-	Animator player_animator;
 	player_animator.type = player_animate;
 	player_animator.numFrames = 8;
 	player_animator.frames = player_frame_data;
@@ -18,8 +17,6 @@ void setupGame(){
 		3, // sprite height
 		&player_animator // animator
 	);
-	// setObject(&enemyOne, enemy_x, 0, 0, 0, 0);
-	// setObject(&enemyTwo, enemy_x, 0, 0, 0, 0);
 
 	printf("game\n");
 }

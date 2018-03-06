@@ -25,6 +25,7 @@ typedef struct Object_s {
 	Animator* animator;
 } Object;
 
+extern Animator player_animator;
 extern Object player;
 extern Object enemyOne;
 extern Object enemyTwo;
