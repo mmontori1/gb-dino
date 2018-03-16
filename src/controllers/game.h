@@ -7,6 +7,7 @@
 #include "../models/data.h"
 #include "../models/gameState.h"
 #include "../models/object.h"
+#include "../models/animator.h"
 
 void setupGame();
 void setGameData();

@@ -1,6 +1,5 @@
 #include "object.h"
 
-Animator player_animator;
 Object player;
 Object enemyOne;
 Object enemyTwo;

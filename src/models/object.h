@@ -3,17 +3,7 @@
 
 #include <asm/types.h>
 #include <rand.h>
-
-typedef enum Animate {
-	CONSTANT,
-	DYNAMIC
-} Animate;
-
-typedef struct Animator_s {
-	Animate *type;	// should be of size of num sprites
-	UINT8 numFrames;
-	UINT8 **frames;	// should be 2d arr of size [num dynamic sprites][numFrames]
-} Animator;
+#include "animator.h"
 
 typedef struct Object_s {
 	UINT16 x;
@@ -25,7 +15,6 @@ typedef struct Object_s {
 	Animator* animator;
 } Object;
 
-extern Animator player_animator;
 extern Object player;
 extern Object enemyOne;
 extern Object enemyTwo;
