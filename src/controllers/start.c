@@ -2,7 +2,8 @@
 
 void setupStart(){
 	start_button = startGame;
-	printf("start\n");
+	state.num_bkg = 0;
+	// printf("start\n");
 }
 
 void startGame(){

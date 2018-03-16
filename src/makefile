@@ -5,8 +5,9 @@ CC = lcc -Wa-l -Wl-m
 BIN = main.gb
 OBJS = main.o \
 		helpers/global.o \
-		models/data.o models/object.o models/animator.o models/gameState.o \
-		controllers/input.o controllers/start.o controllers/game.o controllers/over.o controllers/state.o
+		models/data.o models/object.o models/animator.o models/gameState.o models/backdrop.o \
+		controllers/input.o controllers/start.o controllers/game.o controllers/over.o controllers/state.o \
+		views/background.o
 
 # Compile and Assemble C Source Files into Object Files
 all: $(BIN)

@@ -11,6 +11,7 @@ void main() {
 		
 		// Draw (views draw screen based on models)
 		/*
+			* make wrapper views.c with draw logic
 			* sprite draw func here
 				-> draw_sprites(state.type)
 			* window draw func here
@@ -18,6 +19,7 @@ void main() {
 			* bkg draw func here
 				-> draw_bkg(state.type)
 		*/
+		drawBkg();
 	}
 }
 
@@ -40,8 +42,8 @@ void init() {
 	/*
 		* clear screen 
 			-> draw_sprites(CLEAR)
-			-> draw_bkg(CLEAR)
 	*/
+	clearBkg();
 
 	SHOW_BKG;
 	SHOW_SPRITES;

@@ -4,6 +4,7 @@
 #include "helpers/global.h"
 #include "object.h"
 #include "dimension.h"
+#include "backdrop.h"
 
 typedef enum Action {
 	START,
@@ -17,8 +18,8 @@ typedef struct State_s {
 	Action type;
 	UINT16 score;
 	void (*setData) ();
-	Object **sprites;
-	Dimension **bkg;
+	Backdrop **bkg;
+	UINT8 num_bkg;
 } State;
 
 extern State state;

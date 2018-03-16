@@ -5,11 +5,13 @@ Object enemyOne;
 Object enemyTwo;
 
 Animator player_animator;
+
 Dimension player_dimension;
+Dimension ground_dimension;
 
-Dimension ground;
+Backdrop ground;
 
-Dimension *game_bkg[1] = {
+Backdrop *game_bkg[1] = {
 	&ground
 };
 
@@ -17,10 +19,14 @@ void setupGame(){
 	// int i, j, k;
 	state.score = 0;
 
-	ground.x = 0;
-	ground.y = 16;
-	ground.width = 32;
-	ground.height = 2;
+	ground_dimension.x = 0;
+	ground_dimension.y = 16;
+	ground_dimension.width = 32;
+	ground_dimension.height = 2;
+
+	ground.dimension = &ground_dimension;
+	ground.tiles = ground_map;
+	// printf("%d\n", &ground_map);
 
 	player_dimension.x = player_x;
 	player_dimension.y = player_y;
@@ -37,6 +43,9 @@ void setupGame(){
 	player.animator = &player_animator;
 
 	state.bkg = game_bkg;
+	state.num_bkg = 1;
+
+	// printf("%d\n", state.bkg[0]->tiles);
 	/*
 	k = 0;
 	for(i = 0; i < player.numTiles; ++i){
@@ -51,7 +60,7 @@ void setupGame(){
 	}
 	printf("%d %d %d %d\n", player.dimension->x, player.dimension->y, player.dimension->width, player.dimension->height);
 	*/
-	printf("game\n");
+	// printf("game\n");
 }
 
 void setGameData(){

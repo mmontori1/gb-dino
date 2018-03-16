@@ -13,6 +13,8 @@
 #include "controllers/input.h"
 #include "controllers/start.h"
 
+#include "views/background.h"
+
 void vblCallback();
 void init();
 

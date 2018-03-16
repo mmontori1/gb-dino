@@ -7,17 +7,8 @@
 #include "../models/data.h"
 #include "../models/gameState.h"
 #include "../models/object.h"
+#include "../models/backdrop.h"
 #include "../models/animator.h"
-
-extern Object player;
-extern Object enemyOne;
-extern Object enemyTwo;
-
-extern Animator player_animator;
-
-extern Dimension ground;
-
-extern Dimension *game_bkg[1];
 
 void setupGame();
 void setGameData();
