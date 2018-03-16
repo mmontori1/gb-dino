@@ -1,23 +1,44 @@
 #include "game.h"
 
+Object player;
+Object enemyOne;
+Object enemyTwo;
+
+Animator player_animator;
+Dimension player_dimension;
+
 void setupGame(){
+	int i, j, k;
+	state.score = 0;
+
+	game_bkg
+
+	player_dimension.x = player_x;
+	player_dimension.y = player_y;
+	player_dimension.width = 2;
+	player_dimension.height = 3;
+
 	player_animator.type = player_animate;
 	player_animator.numFrames = 8;
 	player_animator.frames = player_frame_data;
 
-	state.score = 0;
+	player.startTile = 0;
+	player.numTiles = 6;
+	player.dimension = &player_dimension;
+	player.animator = &player_animator;
 
-	setObject(
-		&player, // object
-		player_x, // x-pos
-		player_y, // y-pos
-		0, // sprite start tile
-		6, // num tiles
-		2, // sprite width
-		3, // sprite height
-		&player_animator // animator
-	);
-
+	k = 0;
+	for(i = 0; i < player.numTiles; ++i){
+		if(player.animator->type[i] == DYNAMIC){
+			for(j = 0; j < player.animator->numFrames; ++j){
+				printf("%d ", player.animator->frames[i - k][j]);
+			}
+			printf("\n");
+		} else {
+			++k;
+		}
+	}
+	printf("%d %d %d %d\n", player.dimension->x, player.dimension->y, player.dimension->width, player.dimension->height);
 	printf("game\n");
 }
 

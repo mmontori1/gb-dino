@@ -14,6 +14,4 @@ typedef struct Animator_s {
 	UINT8 **frames;	// should be 2d arr of size [num dynamic sprites][numFrames]
 } Animator;
 
-extern Animator player_animator;
-
 #endif

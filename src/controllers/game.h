@@ -9,6 +9,12 @@
 #include "../models/object.h"
 #include "../models/animator.h"
 
+extern Object player;
+extern Object enemyOne;
+extern Object enemyTwo;
+
+extern Animator player_animator;
+
 void setupGame();
 void setGameData();
 
