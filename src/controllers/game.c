@@ -7,11 +7,20 @@ Object enemyTwo;
 Animator player_animator;
 Dimension player_dimension;
 
+Dimension ground;
+
+Dimension *game_bkg[1] = {
+	&ground
+};
+
 void setupGame(){
-	int i, j, k;
+	// int i, j, k;
 	state.score = 0;
 
-	game_bkg
+	ground.x = 0;
+	ground.y = 16;
+	ground.width = 32;
+	ground.height = 2;
 
 	player_dimension.x = player_x;
 	player_dimension.y = player_y;
@@ -27,6 +36,8 @@ void setupGame(){
 	player.dimension = &player_dimension;
 	player.animator = &player_animator;
 
+	state.bkg = game_bkg;
+	/*
 	k = 0;
 	for(i = 0; i < player.numTiles; ++i){
 		if(player.animator->type[i] == DYNAMIC){
@@ -39,13 +50,16 @@ void setupGame(){
 		}
 	}
 	printf("%d %d %d %d\n", player.dimension->x, player.dimension->y, player.dimension->width, player.dimension->height);
+	*/
 	printf("game\n");
 }
 
 void setGameData(){
 	// init sprite, bkg, window game data
-
 	set_sprite_data(0, 24, hacker_tiles);
 	set_sprite_data(24, 9, fly_tiles);
 	set_sprite_data(33, 4, cactus_tiles);
+
+	set_bkg_data(0, 2, ground_tiles);
+
 }

@@ -15,6 +15,10 @@ extern Object enemyTwo;
 
 extern Animator player_animator;
 
+extern Dimension ground;
+
+extern Dimension *game_bkg[1];
+
 void setupGame();
 void setGameData();
 
