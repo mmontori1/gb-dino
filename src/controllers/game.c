@@ -16,7 +16,6 @@ Backdrop *game_bkg[1] = {
 };
 
 void setupGame(){
-	// int i, j, k;
 	state.score = 0;
 
 	ground_dimension.x = 0;
@@ -26,7 +25,6 @@ void setupGame(){
 
 	ground.dimension = &ground_dimension;
 	ground.tiles = ground_map;
-	// printf("%d\n", &ground_map);
 
 	player_dimension.x = player_x;
 	player_dimension.y = player_y;
@@ -44,23 +42,6 @@ void setupGame(){
 
 	state.bkg = game_bkg;
 	state.num_bkg = 1;
-
-	// printf("%d\n", state.bkg[0]->tiles);
-	/*
-	k = 0;
-	for(i = 0; i < player.numTiles; ++i){
-		if(player.animator->type[i] == DYNAMIC){
-			for(j = 0; j < player.animator->numFrames; ++j){
-				printf("%d ", player.animator->frames[i - k][j]);
-			}
-			printf("\n");
-		} else {
-			++k;
-		}
-	}
-	printf("%d %d %d %d\n", player.dimension->x, player.dimension->y, player.dimension->width, player.dimension->height);
-	*/
-	// printf("game\n");
 }
 
 void setGameData(){

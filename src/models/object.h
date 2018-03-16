@@ -20,6 +20,4 @@ typedef struct Object_s {
 #define cactus_y 128
 #define fly_y 104
 
-// void setObject(Object* temp, UINT8 x, UINT8 y, UINT8 startTile, UINT8 numTiles, UINT8 width, UINT8 height, Animator* animator);
-
 #endif
