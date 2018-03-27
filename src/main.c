@@ -44,7 +44,7 @@ void init() {
 			-> draw_sprites(CLEAR)
 	*/
 	clearBkg();
-
+	initGame();
 	SHOW_BKG;
 	SHOW_SPRITES;
 

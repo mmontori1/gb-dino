@@ -12,6 +12,7 @@
 
 #include "controllers/input.h"
 #include "controllers/start.h"
+#include "controllers/game.h"
 
 #include "views/background.h"
 

@@ -15,9 +15,7 @@ Backdrop *game_bkg[1] = {
 	&ground
 };
 
-void setupGame(){
-	state.score = 0;
-
+void initGame(){
 	ground_dimension.x = 0;
 	ground_dimension.y = 16;
 	ground_dimension.width = 32;
@@ -39,7 +37,10 @@ void setupGame(){
 	player.numTiles = 6;
 	player.dimension = &player_dimension;
 	player.animator = &player_animator;
+}
 
+void setupGame(){
+	state.score = 0;
 	state.bkg = game_bkg;
 	state.num_bkg = 1;
 }
