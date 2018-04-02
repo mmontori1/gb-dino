@@ -19,7 +19,7 @@ void main() {
 			* bkg draw func here
 				-> draw_bkg(state.type)
 		*/
-		// drawBkg();
+		drawBkg();
 		drawSprites();
 	}
 }
