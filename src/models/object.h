@@ -10,7 +10,7 @@ typedef struct Object_s {
 	UINT8 startTile;
 	UINT8 numTiles;
 	Dimension* dimension;
-	Animator* animator;
+	Frames** frames;
 } Object;
 
 #define player_x 32

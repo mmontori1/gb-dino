@@ -163,15 +163,9 @@ const unsigned char cactus_tiles[] = {
   0x0E,0xF2,0xFC,0x04,0xFC,0x04,0xF8,0xF8
 };
 
-const Animate player_animate[6] = {CONSTANT, CONSTANT, DYNAMIC, DYNAMIC, DYNAMIC, DYNAMIC};
-
+const UINT8 player_topleft_data[1] = {1};
+const UINT8 player_topright_data[1] = {2};
 const UINT8 player_midleft_data[8] = {3, 5, 7, 3, 3, 8, 10, 3};
 const UINT8 player_midright_data[8] = {4, 6, 6, 4, 4, 9, 11, 4};
 const UINT8 player_botleft_data[8] = {12, 14, 16, 18, 12, 20, 22, 20};
 const UINT8 player_botright_data[8] = {13, 15, 17, 19, 13, 21, 23, 21};
-const UINT8 *player_frame_data[4] = {
-  &player_midleft_data, 
-  &player_midright_data, 
-  &player_botleft_data,
-  &player_botright_data
-};

@@ -5,7 +5,7 @@ CC = lcc -Wa-l -Wl-m
 BIN = main.gb
 OBJS = main.o \
 		helpers/global.o \
-		models/data.o models/gameState.o \
+		models/data.o models/gameState.o models/animator.o \
 		controllers/input.o controllers/start.o controllers/game.o controllers/over.o controllers/state.o \
 		views/background.o
 

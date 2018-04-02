@@ -10,6 +10,7 @@
 #include "../models/backdrop.h"
 #include "../models/animator.h"
 
+void initGame();
 void setupGame();
 void setGameData();
 

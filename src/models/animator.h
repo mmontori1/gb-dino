@@ -8,10 +8,15 @@ typedef enum Animate {
 	DYNAMIC
 } Animate;
 
-typedef struct Animator_s {
-	Animate *type;	// should be of size of num sprites
+typedef struct Frames {
 	UINT8 numFrames;
-	UINT8 **frames;	// should be 2d arr of size [num dynamic sprites][numFrames]
+	UINT8 *frames;
+} Frames;
+
+typedef struct Animator_s {
+	Frames **frames;
 } Animator;
+
+void initFrames(Frames* frames, UINT8 numFrames, UINT8 *frame_data);
 
 #endif

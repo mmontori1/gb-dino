@@ -6,6 +6,21 @@ Object enemyTwo;
 
 Animator player_animator;
 
+Frames player_topleft_frames;
+Frames player_topright_frames;
+Frames player_midleft_frames;
+Frames player_midright_frames;
+Frames player_botleft_frames;
+Frames player_botright_frames;
+Frames *player_frames[6] = {
+	&player_topleft_frames,
+	&player_topright_frames,
+	&player_midleft_frames,
+	&player_midright_frames,
+	&player_botleft_frames,
+	&player_botright_frames
+};
+
 Dimension player_dimension;
 Dimension ground_dimension;
 
@@ -29,14 +44,17 @@ void initGame(){
 	player_dimension.width = 2;
 	player_dimension.height = 3;
 
-	player_animator.type = player_animate;
-	player_animator.numFrames = 8;
-	player_animator.frames = player_frame_data;
+	initFrames(&player_topleft_frames, 1, player_topleft_data);
+	initFrames(&player_topright_frames, 1, player_topright_data);
+	initFrames(&player_midleft_frames, 8, player_midleft_data);
+	initFrames(&player_midright_frames, 8, player_midright_data);
+	initFrames(&player_botleft_frames, 8, player_botleft_data);
+	initFrames(&player_botright_frames, 8, player_botright_data);
 
 	player.startTile = 0;
 	player.numTiles = 6;
 	player.dimension = &player_dimension;
-	player.animator = &player_animator;
+	player.frames = player_frames;
 }
 
 void setupGame(){
