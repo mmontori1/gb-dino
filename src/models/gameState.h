@@ -18,8 +18,12 @@ typedef struct State_s {
 	Action type;
 	UINT16 score;
 	void (*setData) ();
+
 	Backdrop **bkg;
 	UINT8 num_bkg;
+
+	Object **sprites;
+	UINT8 num_sprites;
 } State;
 
 extern State state;

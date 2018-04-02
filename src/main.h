@@ -15,6 +15,7 @@
 #include "controllers/game.h"
 
 #include "views/background.h"
+#include "views/sprites.h"
 
 void vblCallback();
 void init();

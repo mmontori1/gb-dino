@@ -1,10 +1,11 @@
 #include "game.h"
+#include <stdio.h>
+
+UINT8 i;
 
 Object player;
 Object enemyOne;
 Object enemyTwo;
-
-Animator player_animator;
 
 Frames player_topleft_frames;
 Frames player_topright_frames;
@@ -30,6 +31,10 @@ Backdrop *game_bkg[1] = {
 	&ground
 };
 
+Object *game_objects[1] = {
+	&player
+};
+
 void initGame(){
 	ground_dimension.x = 0;
 	ground_dimension.y = 16;
@@ -44,12 +49,18 @@ void initGame(){
 	player_dimension.width = 2;
 	player_dimension.height = 3;
 
-	initFrames(&player_topleft_frames, 1, player_topleft_data);
-	initFrames(&player_topright_frames, 1, player_topright_data);
-	initFrames(&player_midleft_frames, 8, player_midleft_data);
-	initFrames(&player_midright_frames, 8, player_midright_data);
-	initFrames(&player_botleft_frames, 8, player_botleft_data);
-	initFrames(&player_botright_frames, 8, player_botright_data);
+	player_topleft_frames.numFrames = 1;
+	player_topleft_frames.frames = player_topleft_data;
+	player_topright_frames.numFrames = 1;
+	player_topright_frames.frames = player_topright_data;
+	player_midleft_frames.numFrames = 8;
+	player_midleft_frames.frames = player_midleft_data;
+	player_midright_frames.numFrames = 8;
+	player_midright_frames.frames = player_midright_data;
+	player_botleft_frames.numFrames = 8;
+	player_botleft_frames.frames = player_botleft_data;
+	player_botright_frames.numFrames = 8;
+	player_botright_frames.frames = player_botright_data;
 
 	player.startTile = 0;
 	player.numTiles = 6;
@@ -61,6 +72,8 @@ void setupGame(){
 	state.score = 0;
 	state.bkg = game_bkg;
 	state.num_bkg = 1;
+	state.sprites = game_objects;
+	state.num_sprites = 1;
 }
 
 void setGameData(){
