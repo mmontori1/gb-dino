@@ -1,21 +1,21 @@
 #include "state.h"
 
-void updateState(Action type){
-	state.type = type;
+void updateState(State *state, Action type){
+	state->type = type;
 	clearInputs();
 	
 	switch(type){
 		case START :
-			setupStart();
-			state.setData = NULL;
+			setupStart(state);
+			state->setData = NULL;
 			break;
 		case GAME :
-			setupGame();
-			state.setData = setGameData;
+			setupGame(state);
+			state->setData = setGameData;
 			break;
 		case OVER :
-			setupOver();
-			state.setData = NULL;
+			setupOver(state);
+			state->setData = NULL;
 			break;
 	}
 

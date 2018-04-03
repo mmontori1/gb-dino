@@ -7,6 +7,6 @@
 #include "../models/data.h"
 
 void clearBkg();
-void drawBkg();
+void drawBkg(State *);
 
 #endif

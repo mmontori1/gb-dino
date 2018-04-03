@@ -11,7 +11,7 @@
 #include "../models/animator.h"
 
 void initGame();
-void setupGame();
+void setupGame(State *state);
 void setGameData();
 
 #endif

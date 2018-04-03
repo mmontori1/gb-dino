@@ -5,6 +5,6 @@
 #include <asm/types.h>
 #include "../models/gameState.h"
 
-void drawSprites();
+void drawSprites(State *);
 
 #endif

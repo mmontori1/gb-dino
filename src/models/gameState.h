@@ -26,6 +26,4 @@ typedef struct State_s {
 	UINT8 num_sprites;
 } State;
 
-extern State state;
-
 #endif

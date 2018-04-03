@@ -6,6 +6,6 @@
 
 #include "../models/gameState.h"
 
-void setupOver();
+void setupOver(State *);
 
 #endif

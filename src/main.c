@@ -1,12 +1,14 @@
 #include "main.h"
 
+State state;
+
 void main() {
 	init();
 	while(1) {
 		wait_vbl_done();
 
 		// Logic (controllers manipulate models or data)
-		checkInput();
+		checkInput(&state);
 		updateLogic();
 		
 		// Draw (views draw screen based on models)
@@ -19,8 +21,8 @@ void main() {
 			* bkg draw func here
 				-> draw_bkg(state.type)
 		*/
-		drawBkg();
-		drawSprites();
+		drawBkg(&state);
+		drawSprites(&state);
 	}
 }
 
@@ -38,7 +40,7 @@ void init() {
 
 	SPRITES_8x8;
 
-	updateState(START);
+	updateState(&state, START);
 	add_VBL(vblCallback);
 	/*
 		* clear screen 

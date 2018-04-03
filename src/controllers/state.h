@@ -7,7 +7,7 @@
 
 #include "../models/gameState.h"
 
-void updateState(Action type);
+void updateState(State *, Action type);
 void updateLogic();
 
 #endif

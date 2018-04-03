@@ -68,12 +68,12 @@ void initGame(){
 	player.frames = player_frames;
 }
 
-void setupGame(){
-	state.score = 0;
-	state.bkg = game_bkg;
-	state.num_bkg = 1;
-	state.sprites = game_objects;
-	state.num_sprites = 1;
+void setupGame(State *state){
+	state->score = 0;
+	state->bkg = game_bkg;
+	state->num_bkg = 1;
+	state->sprites = game_objects;
+	state->num_sprites = 1;
 }
 
 void setGameData(){
