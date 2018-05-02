@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <asm/types.h>
-#include <time.h>
+#include "../helpers/interval.h"
 #include "../models/gameState.h"
 
 void drawSprites(State *);
