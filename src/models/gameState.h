@@ -20,10 +20,10 @@ typedef struct State_s {
 	void (*setData) ();
 
 	Backdrop **bkg;
-	UINT8 num_bkg;
+	UINT8 numBkg;
 
 	Object **sprites;
-	UINT8 num_sprites;
+	UINT8 numSprites;
 } State;
 
 #endif

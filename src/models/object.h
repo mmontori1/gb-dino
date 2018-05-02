@@ -9,6 +9,8 @@
 typedef struct Object_s {
 	UINT8 startTile;
 	UINT8 numTiles;
+	UINT8 frameCount;
+	UINT8 maxFrames;
 	Dimension* dimension;
 	Frames** frames;
 } Object;

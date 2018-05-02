@@ -7,7 +7,7 @@ void clearBkg(){
 }
 
 void drawBkg(State *state){
-	for(i = 0; i < state->num_bkg; ++i){
+	for(i = 0; i < state->numBkg; ++i){
 		set_bkg_tiles(
 			state->bkg[i]->dimension->x, 
 			state->bkg[i]->dimension->y, 

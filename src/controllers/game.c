@@ -64,6 +64,8 @@ void initGame(){
 
 	player.startTile = 0;
 	player.numTiles = 6;
+	player.frameCount = 0;
+	player.maxFrames = 8;
 	player.dimension = &player_dimension;
 	player.frames = player_frames;
 }
@@ -71,9 +73,9 @@ void initGame(){
 void setupGame(State *state){
 	state->score = 0;
 	state->bkg = game_bkg;
-	state->num_bkg = 1;
+	state->numBkg = 1;
 	state->sprites = game_objects;
-	state->num_sprites = 1;
+	state->numSprites = 1;
 }
 
 void setGameData(){
