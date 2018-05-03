@@ -24,6 +24,7 @@ Frames *player_frames[6] = {
 
 Dimension player_dimension;
 Dimension e1_dimension;
+Dimension e2_dimension;
 Dimension ground_dimension;
 
 Backdrop ground;
@@ -70,9 +71,8 @@ void initGame(){
 	player.dimension = &player_dimension;
 	player.frames = player_frames;
 
-	// e1_dimension.x = 152;
-	// e1_dimension.y = 128;
-	pickEnemy(&enemyOne);
+	enemyOne.dimension = &e1_dimension;
+	enemyTwo.dimension = &e2_dimension;
 }
 
 void setupGame(State *state){
@@ -94,11 +94,17 @@ void pickEnemy(Object *enemy){
 }
 
 void setCactus(Object *enemy){
-	// printf("cactus!\n");
+	enemy->dimension.x = enemy_x;
+	enemy->dimension.y = cactus_y;
+	enemy->dimension.width = 2;
+	enemy->dimension.height = 2;
 }
 
 void setFly(Object *enemy){
-	// printf("fly!\n");
+	enemy->dimension.x = enemy_x;
+	enemy->dimension.y = cactus_y;
+	enemy->dimension.width = 3;
+	enemy->dimension.height = 2;
 }
 
 void setGameData(){
