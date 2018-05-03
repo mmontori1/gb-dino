@@ -8,6 +8,5 @@
 #include "../models/gameState.h"
 
 void updateState(State *, Action type);
-void updateLogic();
 
 #endif

@@ -18,6 +18,7 @@ typedef struct State_s {
 	Action type;
 	UINT16 score;
 	void (*setData) ();
+	void (*updateLogic) ();
 
 	Backdrop **bkg;
 	UINT8 numBkg;

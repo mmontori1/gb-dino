@@ -9,7 +9,7 @@ void main() {
 
 		// Logic (controllers manipulate models or data)
 		checkInput(&state);
-		updateLogic();
+		if(state.updateLogic != NULL) state.updateLogic();
 		
 		// Draw (views draw screen based on models)
 		/*

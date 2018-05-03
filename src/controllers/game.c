@@ -83,6 +83,10 @@ void setupGame(State *state){
 	state->numSprites = 1;
 }
 
+void gameLoop(){
+
+}
+
 void pickEnemy(Object *enemy){
 	UINT8 type = getRand() & 1;
 	if(type){
@@ -94,17 +98,17 @@ void pickEnemy(Object *enemy){
 }
 
 void setCactus(Object *enemy){
-	enemy->dimension.x = enemy_x;
-	enemy->dimension.y = cactus_y;
-	enemy->dimension.width = 2;
-	enemy->dimension.height = 2;
+	enemy->dimension->x = enemy_x;
+	enemy->dimension->y = cactus_y;
+	enemy->dimension->width = 2;
+	enemy->dimension->height = 2;
 }
 
 void setFly(Object *enemy){
-	enemy->dimension.x = enemy_x;
-	enemy->dimension.y = cactus_y;
-	enemy->dimension.width = 3;
-	enemy->dimension.height = 2;
+	enemy->dimension->x = enemy_x;
+	enemy->dimension->y = cactus_y;
+	enemy->dimension->width = 3;
+	enemy->dimension->height = 2;
 }
 
 void setGameData(){
