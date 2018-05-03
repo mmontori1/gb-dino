@@ -4,7 +4,7 @@ CC = lcc -Wa-l -Wl-m
 # Gameboy and Object files
 BIN = main.gb
 OBJS = main.o \
-		helpers/global.o helpers/interval.o\
+		helpers/global.o helpers/mtime.o\
 		models/data.o models/gameState.o \
 		controllers/input.o controllers/start.o controllers/game.o controllers/over.o controllers/state.o \
 		views/background.o views/sprites.o

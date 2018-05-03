@@ -23,6 +23,7 @@ Frames *player_frames[6] = {
 };
 
 Dimension player_dimension;
+Dimension e1_dimension;
 Dimension ground_dimension;
 
 Backdrop ground;
@@ -68,6 +69,10 @@ void initGame(){
 	player.maxFrames = 8;
 	player.dimension = &player_dimension;
 	player.frames = player_frames;
+
+	// e1_dimension.x = 152;
+	// e1_dimension.y = 128;
+	pickEnemy(&enemyOne);
 }
 
 void setupGame(State *state){
@@ -76,6 +81,24 @@ void setupGame(State *state){
 	state->numBkg = 1;
 	state->sprites = game_objects;
 	state->numSprites = 1;
+}
+
+void pickEnemy(Object *enemy){
+	UINT8 type = getRand() & 1;
+	if(type){
+		setCactus(enemy);
+	}
+	else {
+		setFly(enemy);
+	}
+}
+
+void setCactus(Object *enemy){
+	// printf("cactus!\n");
+}
+
+void setFly(Object *enemy){
+	// printf("fly!\n");
 }
 
 void setGameData(){

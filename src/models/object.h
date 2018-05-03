@@ -2,7 +2,6 @@
 #define OBJECT_H
 
 #include <asm/types.h>
-#include <rand.h>
 #include "animator.h"
 #include "dimension.h"
 
