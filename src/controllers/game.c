@@ -175,7 +175,14 @@ void gameLoop(){
 				enemyTwo.dimension->x -= speed;
 			}
 		}
+		checkX(enemyOne.dimension->x);
+		checkX(enemyTwo.dimension->x);
 	}
+}
+
+void checkX(INT8 *val){
+	if(*val < 0) *val = 248;
+	if(*val > 248) *val = enemy_x;
 }
 
 void pickEnemy(Object *enemy){

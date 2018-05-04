@@ -15,6 +15,7 @@ void initGame();
 void setupGame(State *state);
 void setGameData();
 void gameLoop();
+void checkX(INT8 *val);
 void pickEnemy(Object *enemy);
 void setCactus(Object *enemy);
 void setFly(Object *enemy);
