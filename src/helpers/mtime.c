@@ -5,7 +5,8 @@
 UINT16 t;
 
 BOOLEAN intervalCheck(UINT16 *currentTime, UINT8 rate){
-	t = clock() / rate;
+	t = clock();
+	if(rate > 0) t = t / rate;
 	if(t != *currentTime){
 		*currentTime = t;
 		return 1;
