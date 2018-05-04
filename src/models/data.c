@@ -176,3 +176,8 @@ const UINT8 fly_topright_data[2] = {28, 32};
 const UINT8 fly_botleft_data[2] = {25, 30};
 const UINT8 fly_botmid_data[1] = {27};
 const UINT8 fly_botright_data[1] = {29};
+
+const UINT8 cactus_topleft_data[1] = {33};
+const UINT8 cactus_topright_data[1] = {34};
+const UINT8 cactus_botleft_data[1] = {35};
+const UINT8 cactus_botright_data[1] = {36};

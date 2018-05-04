@@ -17,7 +17,7 @@ typedef struct Object_s {
 #define player_x 32
 #define player_y 120
 
-#define enemy_x 160
+#define enemy_x 168
 #define cactus_y 128
 #define fly_y 104
 

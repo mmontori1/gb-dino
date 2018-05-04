@@ -17,8 +17,8 @@ void drawSprites(State *state){
 				set_sprite_tile(j + curSprite->startTile, curSprite->frames[j]->frames[curFrame]);
 				move_sprite(
 					j + curSprite->startTile, 
-					curSprite->dimension->x + 8 * (j % curSprite->dimension->width), // j % 2 == j & 1 
-					curSprite->dimension->y + 8 * (j / curSprite->dimension->width) // j / 2 == j >> 1
+					curSprite->dimension->x + 8 * (j % curSprite->dimension->width), 
+					curSprite->dimension->y + 8 * (j / curSprite->dimension->width)
 				);
 			}
 			if(++curSprite->frameCount >= curSprite->maxFrames) curSprite->frameCount = 0;

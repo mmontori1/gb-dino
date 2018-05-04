@@ -2,6 +2,9 @@
 #include <stdio.h>
 
 UINT8 i;
+UINT16 gameTime;
+UINT8 rate;
+UINT8 speed;
 
 Object player;
 Object enemyOne;
@@ -37,9 +40,23 @@ Frames *fly_frames[6] = {
 	&fly_botright_frames
 };
 
+
+Frames cactus_topleft_frames;
+Frames cactus_topright_frames;
+Frames cactus_botleft_frames;
+Frames cactus_botright_frames;
+Frames *cactus_frames[6] = {
+	&cactus_topleft_frames,
+	&cactus_topright_frames,
+	&cactus_botleft_frames,
+	&cactus_botright_frames
+};
+
 Dimension player_dimension;
 Dimension fly_dimension;
 Dimension cactus_dimension;
+Dimension e1_dimension;
+Dimension e2_dimension;
 Dimension ground_dimension;
 
 Backdrop ground;
@@ -55,6 +72,9 @@ Object *game_objects[3] = {
 };
 
 void initGame(){
+	rate = 0;
+	speed = 1;
+
 	ground_dimension.x = 0;
 	ground_dimension.y = 16;
 	ground_dimension.width = 32;
@@ -94,6 +114,15 @@ void initGame(){
 	fly_botright_frames.numFrames = 1;
 	fly_botright_frames.frames = fly_botright_data;
 
+	cactus_topleft_frames.numFrames = 1;
+	cactus_topleft_frames.frames = cactus_topleft_data;
+	cactus_topright_frames.numFrames = 1;
+	cactus_topright_frames.frames = cactus_topright_data;
+	cactus_botleft_frames.numFrames = 1;
+	cactus_botleft_frames.frames = cactus_botleft_data;
+	cactus_botright_frames.numFrames = 1;
+	cactus_botright_frames.frames = cactus_botright_data;
+
 	player.startTile = 0;
 	player.numTiles = 6;
 	player.frameCount = 0;
@@ -112,12 +141,12 @@ void initGame(){
 	cactus_dimension.height = 2;
 
 	enemyOne.startTile = 6;
+	enemyOne.dimension = &e1_dimension;
 	enemyTwo.startTile = 12;
+	enemyTwo.dimension = &e2_dimension;
 
-	/*
-	setFly(&enemyOne);
-	setFly(&enemyTwo);
-	*/
+	pickEnemy(&enemyOne);
+	pickEnemy(&enemyTwo);
 }
 
 void setupGame(State *state){
@@ -129,24 +158,24 @@ void setupGame(State *state){
 }
 
 void gameLoop(){
-	/*
-	if(enemyOne.dimension->x != enemy_x){
-		enemyOne.dimension->x -= 1;
-	}
-	else if(enemyTwo.dimension->x != enemy_x){
-		enemyTwo.dimension->x -= 1;
-	}
-	else if(enemyOne.dimension->x == enemy_x && enemyTwo.dimension->x == enemy_x){
-		if(getRand() & 1){
-			printf("1");
-			enemyOne.dimension->x -= 1;
+	if(intervalCheck(&gameTime, rate)){
+		if(enemyOne.dimension->x != enemy_x){
+			enemyOne.dimension->x -= speed;
 		}
-		else {
-			printf("2");
-			enemyTwo.dimension->x -= 1;
+		else if(enemyTwo.dimension->x != enemy_x){
+			enemyTwo.dimension->x -= speed;
+		}
+		else if(enemyOne.dimension->x == enemy_x && enemyTwo.dimension->x == enemy_x){
+			if(getRand() & 1){
+				pickEnemy(&enemyOne);
+				enemyOne.dimension->x -= speed;
+			}
+			else {
+				pickEnemy(&enemyTwo);
+				enemyTwo.dimension->x -= speed;
+			}
 		}
 	}
-	*/
 }
 
 void pickEnemy(Object *enemy){
@@ -163,14 +192,21 @@ void setCactus(Object *enemy){
 	enemy->numTiles = 4;
 	enemy->frameCount = 0;
 	enemy->maxFrames = 1;
-	enemy->dimension = &cactus_dimension;
+	enemy->dimension->x = cactus_dimension.x;
+	enemy->dimension->y = cactus_dimension.y;
+	enemy->dimension->width = cactus_dimension.width;
+	enemy->dimension->height = cactus_dimension.height;
+	enemy->frames = cactus_frames;
 }
 
 void setFly(Object *enemy){
 	enemy->numTiles = 6;
 	enemy->frameCount = 0;
 	enemy->maxFrames = 2;
-	enemy->dimension = &fly_dimension;
+	enemy->dimension->x = fly_dimension.x;
+	enemy->dimension->y = fly_dimension.y;
+	enemy->dimension->width = fly_dimension.width;
+	enemy->dimension->height = fly_dimension.height;
 	enemy->frames = fly_frames;
 }
 

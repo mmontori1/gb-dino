@@ -30,4 +30,9 @@ extern const UINT8 fly_botleft_data[2];
 extern const UINT8 fly_botmid_data[1];
 extern const UINT8 fly_botright_data[1];
 
+extern const UINT8 cactus_topleft_data[1];
+extern const UINT8 cactus_topright_data[1];
+extern const UINT8 cactus_botleft_data[1];
+extern const UINT8 cactus_botright_data[1];
+
 #endif
