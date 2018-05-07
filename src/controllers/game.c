@@ -75,7 +75,7 @@ Object *game_objects[3] = {
 	&enemyTwo
 };
 
-UINT8 jump_arr[20] = {3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 0, 0, 0, 0};
+UINT8 jump_arr[20] = {3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0};
 
 void initGame(){
 	rate = 0;
@@ -170,50 +170,55 @@ void setupGame(State *state){
 
 void gameLoop(){
 	if(intervalCheck(&gameTime, rate)){
-		// if(enemyOne.dimension->x != enemy_x){
-		// 	enemyOne.dimension->x -= speed;
-		// }
-		// else if(enemyTwo.dimension->x != enemy_x){
-		// 	enemyTwo.dimension->x -= speed;
-		// }
-		// else if(enemyOne.dimension->x == enemy_x && enemyTwo.dimension->x == enemy_x){
-		// 	if(getRand() & 1){
-		// 		pickEnemy(&enemyOne);
-		// 		enemyOne.dimension->x -= speed;
-		// 	}
-		// 	else {
-		// 		pickEnemy(&enemyTwo);
-		// 		enemyTwo.dimension->x -= speed;
-		// 	}
-		// }
-		// checkX(enemyOne.dimension->x);
-		// checkX(enemyTwo.dimension->x);
-		if(isJump) {
-			player.frameCount = 5;
-			if(goingUp) {
-				player.dimension->y -= jump_arr[jumpCount];
-				++jumpCount;
-				if(jumpCount == 20){
-					jumpCount = 19;
-					goingUp = 0;
-				}
-			}
-			else {
-				player.dimension->y += jump_arr[jumpCount];
-				--jumpCount;
-				if(jumpCount < 0){
-					isJump = 0;
-					jumpCount = 0;
-					goingUp = 1;
-					player.frameCount = 0;
-				}
-			}
-		}
+		enemyMovement();
+		jumpCheck();
 	}
 }
 
-void jump(){
+void enemyMovement(){
+	if(enemyOne.dimension->x != enemy_x){
+		enemyOne.dimension->x -= speed;
+	}
+	else if(enemyTwo.dimension->x != enemy_x){
+		enemyTwo.dimension->x -= speed;
+	}
+	else if(enemyOne.dimension->x == enemy_x && enemyTwo.dimension->x == enemy_x){
+		if(getRand() & 1){
+			pickEnemy(&enemyOne);
+			enemyOne.dimension->x -= speed;
+		}
+		else {
+			pickEnemy(&enemyTwo);
+			enemyTwo.dimension->x -= speed;
+		}
+	}
+	checkX(enemyOne.dimension->x);
+	checkX(enemyTwo.dimension->x);
+		
+}
 
+void jumpCheck(){
+	if(isJump) {
+		player.frameCount = 5;
+		if(goingUp) {
+			player.dimension->y -= jump_arr[jumpCount];
+			++jumpCount;
+			if(jumpCount == 20){
+				jumpCount = 19;
+				goingUp = 0;
+			}
+		}
+		else {
+			player.dimension->y += jump_arr[jumpCount];
+			--jumpCount;
+			if(jumpCount < 0){
+				isJump = 0;
+				jumpCount = 0;
+				goingUp = 1;
+				player.frameCount = 0;
+			}
+		}
+	}
 }
 
 void beginJump(State *state){
