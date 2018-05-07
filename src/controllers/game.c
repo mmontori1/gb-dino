@@ -8,7 +8,7 @@ UINT8 speed;
 
 INT8 jumpCount;
 BOOLEAN isJump;
-UINT8 flip;
+UINT8 goingUp;
 
 Object player;
 Object enemyOne;
@@ -83,7 +83,7 @@ void initGame(){
 
 	isJump = 0;
 	jumpCount = 0;
-	flip = 1;
+	goingUp = 1;
 
 	ground_dimension.x = 0;
 	ground_dimension.y = 16;
@@ -160,6 +160,7 @@ void initGame(){
 }
 
 void setupGame(State *state){
+	a_button = beginJump;
 	state->score = 0;
 	state->bkg = game_bkg;
 	state->numBkg = 1;
@@ -189,12 +190,12 @@ void gameLoop(){
 		// checkX(enemyTwo.dimension->x);
 		if(isJump) {
 			player.frameCount = 5;
-			if(flip) {
+			if(goingUp) {
 				player.dimension->y -= jump_arr[jumpCount];
 				++jumpCount;
 				if(jumpCount == 20){
 					jumpCount = 19;
-					flip = 0;
+					goingUp = 0;
 				}
 			}
 			else {
@@ -203,12 +204,21 @@ void gameLoop(){
 				if(jumpCount < 0){
 					isJump = 0;
 					jumpCount = 0;
-					flip = 1;
+					goingUp = 1;
 					player.frameCount = 0;
 				}
 			}
 		}
 	}
+}
+
+void jump(){
+
+}
+
+void beginJump(State *state){
+	state->score += 0;
+	isJump = 1;
 }
 
 void checkX(INT8 *val){
