@@ -75,10 +75,11 @@ Object *game_objects[3] = {
 	&enemyTwo
 };
 
-UINT8 jump_arr[20] = {3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 1, 1, 1, 1, 0, 0, 0, 0, 0};
+const UINT8 JUMP_ARR_LENGTH = 12;
+UINT8 jump_arr[12] = {3, 3, 3, 3, 3, 2, 2, 2, 1, 1, 0, 0};
 
 void initGame(){
-	rate = 0;
+	rate = 2;
 	speed = 1;
 
 	isJump = 0;
@@ -170,6 +171,7 @@ void setupGame(State *state){
 
 void gameLoop(){
 	if(intervalCheck(&gameTime, rate)){
+		scroll_bkg(1,0);
 		enemyMovement();
 		jumpCheck();
 	}
@@ -203,8 +205,8 @@ void jumpCheck(){
 		if(goingUp) {
 			player.dimension->y -= jump_arr[jumpCount];
 			++jumpCount;
-			if(jumpCount == 20){
-				jumpCount = 19;
+			if(jumpCount == JUMP_ARR_LENGTH){
+				jumpCount = JUMP_ARR_LENGTH - 1;
 				goingUp = 0;
 			}
 		}
