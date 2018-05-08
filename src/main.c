@@ -10,7 +10,7 @@ void main() {
 		// Logic (controllers manipulate models or data)
 		checkInput(&state);
 		if(state.updateLogic != NULL) state.updateLogic();
-		
+
 		// Draw (views draw screen based on models)
 		/*
 			* make wrapper views.c with draw logic
@@ -21,8 +21,8 @@ void main() {
 			* bkg draw func here
 				-> draw_bkg(state.type)
 		*/
-		drawBkg(&state);
-		drawSprites(&state);
+		drawBkg(state.bkg, state.numBkg);
+		drawSprites(state.sprites, state.numSprites);
 	}
 }
 

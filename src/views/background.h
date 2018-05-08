@@ -7,6 +7,6 @@
 #include "../models/data.h"
 
 void clearBkg();
-void drawBkg(State *);
+void drawBkg(Backdrop **bkg, UINT8 numBkg);
 
 #endif

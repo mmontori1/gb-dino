@@ -6,14 +6,14 @@ void clearBkg(){
 	set_bkg_tiles(0, 0, 32, 18, blank_map);
 }
 
-void drawBkg(State *state){
-	for(i = 0; i < state->numBkg; ++i){
+void drawBkg(Backdrop **bkg, UINT8 numBkg){
+	for(i = 0; i < numBkg; ++i){
 		set_bkg_tiles(
-			state->bkg[i]->dimension->x, 
-			state->bkg[i]->dimension->y, 
-			state->bkg[i]->dimension->width, 
-			state->bkg[i]->dimension->height, 
-			state->bkg[i]->tiles
+			bkg[i]->dimension->x, 
+			bkg[i]->dimension->y, 
+			bkg[i]->dimension->width, 
+			bkg[i]->dimension->height, 
+			bkg[i]->tiles
 		);
 	}
 

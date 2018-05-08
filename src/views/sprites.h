@@ -6,6 +6,6 @@
 #include "../helpers/mtime.h"
 #include "../models/gameState.h"
 
-void drawSprites(State *);
+void drawSprites(Object **sprites, UINT8 size);
 
 #endif

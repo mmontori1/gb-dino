@@ -4,15 +4,15 @@ UINT8 i;
 UINT8 j;
 UINT8 k;
 UINT16 spriteTime;
+UINT8 xj;
+UINT8 yj;
+Object* curSprite;
+UINT8 curFrame;
 
-void drawSprites(State *state){
-	UINT8 xj;
-	UINT8 yj;
-	if(intervalCheck(&spriteTime, 5)){
-		Object* curSprite;
-		UINT8 curFrame;
-		for(i = 0; i < state->numSprites; ++i){
-			curSprite = state->sprites[i];
+void drawSprites(Object **sprites, UINT8 size){
+	if(intervalCheck(&spriteTime, 0)){
+		for(i = 0; i < size; ++i){
+			curSprite = sprites[i];
 			for(j = 0; j < curSprite->numTiles; ++j){
 				curFrame = curSprite->frameCount;
 				if(curSprite->frames[j]->numFrames == 1) curFrame = 0;
