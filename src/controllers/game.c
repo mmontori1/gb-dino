@@ -6,8 +6,6 @@ UINT16 gameTime;
 UINT8 rate;
 UINT8 speed;
 
-UINT16 delta;
-
 INT8 jumpCount;
 BOOLEAN isJump;
 UINT8 goingUp;
@@ -163,8 +161,6 @@ void initGame(){
 }
 
 void setupGame(State *state){
-	delta = 0;
-	setWait(delta);
 	a_button = beginJump;
 	state->score = 0;
 	state->bkg = game_bkg;
