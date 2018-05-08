@@ -9,22 +9,22 @@ void checkInput(State *state){
 			if(select_button) (*select_button)(state);
 			break;
 		case J_UP :
-			if(up_button) (*up_button)(state);
+			if(up_button) (*up_button)();
 			break;
 		case J_LEFT :
-			if(left_button) (*left_button)(state);
+			if(left_button) (*left_button)();
 			break;
 		case J_RIGHT :
-			if(right_button) (*right_button)(state);
+			if(right_button) (*right_button)();
 			break;
 		case J_DOWN :
-			if(down_button) (*down_button)(state);
+			if(down_button) (*down_button)();
 			break;
 		case J_A :
-			if(a_button) (*a_button)(state);
+			if(a_button) (*a_button)();
 			break;
 		case J_B :
-			if(b_button) (*b_button)(state);
+			if(b_button) (*b_button)();
 			break;
 	}
 }
@@ -42,9 +42,9 @@ void clearInputs(){
 
 void (*start_button) (State *);
 void (*select_button) (State *);
-void (*up_button) (State *);
-void (*left_button) (State *);
-void (*right_button) (State *);
-void (*down_button) (State *);
-void (*a_button) (State *);
-void (*b_button) (State *);
+void (*up_button) ();
+void (*left_button) ();
+void (*right_button) ();
+void (*down_button) ();
+void (*a_button) ();
+void (*b_button) ();

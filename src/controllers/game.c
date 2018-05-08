@@ -8,6 +8,7 @@ UINT8 speed;
 
 INT8 jumpCount;
 BOOLEAN isJump;
+BOOLEAN isDrop;
 UINT8 goingUp;
 
 Object player;
@@ -75,17 +76,10 @@ Object *game_objects[3] = {
 	&enemyTwo
 };
 
-const UINT8 JUMP_ARR_LENGTH = 7;
-UINT8 jump_arr[7] = {6, 5, 4, 3, 2, 1, 0};
+#define JUMP_ARR_LENGTH 7
+UINT8 jump_arr[JUMP_ARR_LENGTH] = {6, 5, 4, 3, 2, 1, 0};
 
 void initGame(){
-	rate = 0;
-	speed = 3;
-
-	isJump = 0;
-	jumpCount = 0;
-	goingUp = 1;
-
 	ground_dimension.x = 0;
 	ground_dimension.y = 16;
 	ground_dimension.width = 32;
@@ -155,18 +149,28 @@ void initGame(){
 	enemyOne.dimension = &e1_dimension;
 	enemyTwo.startTile = 12;
 	enemyTwo.dimension = &e2_dimension;
-
-	pickEnemy(&enemyOne);
-	pickEnemy(&enemyTwo);
 }
 
 void setupGame(State *state){
+	rate = 0;
+	speed = 3;
+
+	isJump = 0;
+	jumpCount = 0;
+	goingUp = 1;
+
 	a_button = beginJump;
+	up_button = beginJump;
+	down_button = playerDown;
+
 	state->score = 0;
 	state->bkg = game_bkg;
 	state->numBkg = 1;
 	state->sprites = game_objects;
 	state->numSprites = 3;
+
+	pickEnemy(&enemyOne);
+	pickEnemy(&enemyTwo);
 }
 
 void gameLoop(){
@@ -194,13 +198,12 @@ void enemyMovement() {
 	}
 	checkX(enemyOne.dimension->x);
 	checkX(enemyTwo.dimension->x);
-		
 }
 
 void jumpCheck(){
 	if(isJump) {
 		player.frameCount = 5;
-		if(goingUp) {
+		if(goingUp && !isDrop) {
 			player.dimension->y -= jump_arr[jumpCount];
 			++jumpCount;
 			if(jumpCount == JUMP_ARR_LENGTH){
@@ -208,22 +211,43 @@ void jumpCheck(){
 				goingUp = 0;
 			}
 		}
+		else if(isDrop){
+			player.dimension->y += 8;
+			if(player.dimension->y > player_y){
+				player.dimension->y = player_y;
+				jumpEnd();
+			}
+		}
 		else {
 			player.dimension->y += jump_arr[jumpCount];
 			--jumpCount;
 			if(jumpCount < 0){
-				isJump = 0;
-				jumpCount = 0;
-				goingUp = 1;
-				player.frameCount = 0;
+				jumpEnd();
 			}
 		}
 	}
 }
 
-void beginJump(State *state){
-	state->score += 0;
+void jumpEnd(){
+	isJump = 0;
+	isDrop = 0;
+	jumpCount = 0;
+	goingUp = 1;
+	player.frameCount = 0;
+}
+
+void beginJump(){
 	isJump = 1;
+	isDrop = 0;
+}
+
+void playerDown(){
+	if(player.dimension->y != player_y){
+		isDrop = 1;
+	}
+	else {
+
+	}
 }
 
 void checkX(INT8 *val){

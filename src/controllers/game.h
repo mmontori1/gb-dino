@@ -18,7 +18,9 @@ void gameLoop();
 
 
 void jumpCheck();
-void beginJump(State *state);
+void jumpEnd();
+void playerDown();
+void beginJump();
 
 void enemyMovement();
 void checkX(INT8 *val);
