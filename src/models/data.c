@@ -171,9 +171,9 @@ const UINT8 player_botleft_data[8] = {12, 14, 16, 18, 12, 20, 22, 20};
 const UINT8 player_botright_data[8] = {13, 15, 17, 19, 13, 21, 23, 21};
 
 const UINT8 fly_topleft_data[1] = {24};
-const UINT8 fly_topmid_data[2] = {26, 31};
-const UINT8 fly_topright_data[2] = {28, 32};
-const UINT8 fly_botleft_data[2] = {25, 30};
+const UINT8 fly_topmid_data[4] = {26, 26, 31, 31};
+const UINT8 fly_topright_data[4] = {28, 28, 32, 32};
+const UINT8 fly_botleft_data[4] = {25, 25, 30, 30};
 const UINT8 fly_botmid_data[1] = {27};
 const UINT8 fly_botright_data[1] = {29};
 

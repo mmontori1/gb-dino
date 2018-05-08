@@ -75,11 +75,11 @@ Object *game_objects[3] = {
 	&enemyTwo
 };
 
-const UINT8 JUMP_ARR_LENGTH = 12;
-UINT8 jump_arr[12] = {3, 3, 3, 3, 3, 2, 2, 2, 1, 1, 0, 0};
+const UINT8 JUMP_ARR_LENGTH = 7;
+UINT8 jump_arr[7] = {6, 5, 4, 3, 2, 1, 0};
 
 void initGame(){
-	rate = 5;
+	rate = 0;
 	speed = 3;
 
 	isJump = 0;
@@ -114,11 +114,11 @@ void initGame(){
 
 	fly_topleft_frames.numFrames = 1;
 	fly_topleft_frames.frames = fly_topleft_data;
-	fly_topmid_frames.numFrames = 2;
+	fly_topmid_frames.numFrames = 4;
 	fly_topmid_frames.frames = fly_topmid_data;
-	fly_topright_frames.numFrames = 2;
+	fly_topright_frames.numFrames = 4;
 	fly_topright_frames.frames = fly_topright_data;
-	fly_botleft_frames.numFrames = 2;
+	fly_botleft_frames.numFrames = 4;
 	fly_botleft_frames.frames = fly_botleft_data;
 	fly_botmid_frames.numFrames = 1;
 	fly_botmid_frames.frames = fly_botmid_data;
@@ -156,8 +156,10 @@ void initGame(){
 	enemyTwo.startTile = 12;
 	enemyTwo.dimension = &e2_dimension;
 
-	pickEnemy(&enemyOne);
-	pickEnemy(&enemyTwo);
+	// pickEnemy(&enemyOne);
+	// pickEnemy(&enemyTwo);
+	setFly(&enemyOne);
+	setCactus(&enemyTwo);
 }
 
 void setupGame(State *state){
@@ -170,33 +172,30 @@ void setupGame(State *state){
 }
 
 void gameLoop(){
-	if(intervalCheck(&gameTime, rate)){
-		// if(speed == 1) speed = 4;
-		// else if(speed == 4) speed = 1;
-	
+	// if(intervalCheck(&gameTime, rate)){
+		enemyMovement();
+		jumpCheck();
 		scroll_bkg(1,0);
-	}
-	enemyMovement();
-	jumpCheck();
+	// }
 }
 
 void enemyMovement() {
-	if(enemyOne.dimension->x != enemy_x){
+	// if(enemyOne.dimension->x != enemy_x){
 		enemyOne.dimension->x -= speed;
-	}
-	else if(enemyTwo.dimension->x != enemy_x){
+	// }
+	// else if(enemyTwo.dimension->x != enemy_x){
 		enemyTwo.dimension->x -= speed;
-	}
-	else if(enemyOne.dimension->x == enemy_x && enemyTwo.dimension->x == enemy_x){
-		if(getRand() & 1){
-			pickEnemy(&enemyOne);
-			enemyOne.dimension->x -= speed;
-		}
-		else {
-			pickEnemy(&enemyTwo);
-			enemyTwo.dimension->x -= speed;
-		}
-	}
+	// }
+	// else if(enemyOne.dimension->x == enemy_x && enemyTwo.dimension->x == enemy_x){
+	// 	if(getRand() & 1){
+	// 		pickEnemy(&enemyOne);
+	// 		enemyOne.dimension->x -= speed;
+	// 	}
+	// 	else {
+	// 		pickEnemy(&enemyTwo);
+	// 		enemyTwo.dimension->x -= speed;
+	// 	}
+	// }
 	checkX(enemyOne.dimension->x);
 	checkX(enemyTwo.dimension->x);
 		
@@ -260,7 +259,7 @@ void setCactus(Object *enemy){
 void setFly(Object *enemy){
 	enemy->numTiles = 6;
 	enemy->frameCount = 0;
-	enemy->maxFrames = 2;
+	enemy->maxFrames = 4;
 	enemy->dimension->x = fly_dimension.x;
 	enemy->dimension->y = fly_dimension.y;
 	enemy->dimension->width = fly_dimension.width;

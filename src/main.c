@@ -11,17 +11,8 @@ void main() {
 		checkInput(&state);
 		if(state.updateLogic != NULL) state.updateLogic();
 
+		wait_vbl_done();
 		// Draw (views draw screen based on models)
-		/*
-			* make wrapper views.c with draw logic
-			* sprite draw func here
-				-> draw_sprites(state.type)
-			* window draw func here
-				-> draw_window(state.type)
-			* bkg draw func here
-				-> draw_bkg(state.type)
-		*/
-		drawBkg(state.bkg, state.numBkg);
 		drawSprites(state.sprites, state.numSprites);
 	}
 }
@@ -30,6 +21,7 @@ void main() {
 void vblCallback(){
 	if(VBL_FLAG){
 		if(state.setData != NULL) state.setData();
+		drawBkg(state.bkg, state.numBkg);
 		VBL_FLAG_OFF;
 	}
 }
