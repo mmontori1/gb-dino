@@ -7,6 +7,9 @@ UINT8 speed;
 INT8 jumpCount;
 BOOLEAN isJump;
 BOOLEAN isDrop;
+BOOLEAN isTank;
+BOOLEAN backToHacker;
+BOOLEAN oneSwitch;
 UINT8 goingUp;
 
 Object player;
@@ -43,12 +46,22 @@ Frames *fly_frames[6] = {
 	&fly_botright_frames
 };
 
+Frames tank_topleft_frames;
+Frames tank_topright_frames;
+Frames tank_botleft_frames;
+Frames tank_botright_frames;
+Frames *tank_frames[4] = {
+	&tank_topleft_frames,
+	&tank_topright_frames,
+	&tank_botleft_frames,
+	&tank_botright_frames
+};
 
 Frames cactus_topleft_frames;
 Frames cactus_topright_frames;
 Frames cactus_botleft_frames;
 Frames cactus_botright_frames;
-Frames *cactus_frames[6] = {
+Frames *cactus_frames[4] = {
 	&cactus_topleft_frames,
 	&cactus_topright_frames,
 	&cactus_botleft_frames,
@@ -104,6 +117,15 @@ void initGame(){
 	player_botright_frames.numFrames = player_max_frames;
 	player_botright_frames.frames = player_botright_data;
 
+	tank_topleft_frames.numFrames = 1;
+	tank_topleft_frames.frames = tank_topleft_data;
+	tank_topright_frames.numFrames = 1;
+	tank_topright_frames.frames = tank_topright_data;
+	tank_botleft_frames.numFrames = tank_max_frames;
+	tank_botleft_frames.frames = tank_botleft_data;
+	tank_botright_frames.numFrames = tank_max_frames;
+	tank_botright_frames.frames = tank_botright_data;
+
 	fly_topleft_frames.numFrames = 1;
 	fly_topleft_frames.frames = fly_topleft_data;
 	fly_topmid_frames.numFrames = fly_max_frames;
@@ -153,10 +175,15 @@ void setupGame(State *state){
 	speed = 3;
 
 	isJump = 0;
+	isDrop = 0;
+	isTank = 0;
+	oneSwitch = 1;
+	backToHacker = 0;
 	jumpCount = 0;
 	goingUp = 1;
 
 	a_button = beginJump;
+	b_button = switchTank;
 	up_button = beginJump;
 	down_button = playerDown;
 
@@ -166,6 +193,7 @@ void setupGame(State *state){
 	state->sprites = game_objects;
 	state->numSprites = 3;
 
+	setHacker();
 	pickEnemy(&enemyOne);
 	pickEnemy(&enemyTwo);
 }
@@ -174,6 +202,7 @@ void gameLoop(){
 	enemyMovement();
 	jumpCheck();
 	scroll_bkg(1,0);
+	turnSwitchBack();
 }
 
 void enemyMovement() {
@@ -236,15 +265,31 @@ void jumpEnd(){
 void beginJump(){
 	isJump = 1;
 	isDrop = 0;
+	if(isTank){
+		setHacker();
+		isTank = 0;
+	}
+}
+
+void switchTank(){
+	if(!isJump && oneSwitch){
+		if(!isTank){
+			setTank();
+			if(joypad() & J_B) oneSwitch = 0;
+		}
+		else{
+			setHacker();
+			if(joypad() & J_B) oneSwitch = 0;
+		}
+	}
+}
+
+void turnSwitchBack(){
+	if(!(joypad() & J_B)) oneSwitch = 1;
 }
 
 void playerDown(){
-	if(player.dimension->y != player_y){
-		isDrop = 1;
-	}
-	else {
-
-	}
+	isDrop = 1;
 }
 
 void checkX(INT16 *val){
@@ -260,6 +305,33 @@ void pickEnemy(Object *enemy){
 	else {
 		setFly(enemy);
 	}
+}
+
+void setHacker(){
+	clearSprite(&player, 4, 6);
+	player.numTiles = 6;
+	player.frameCount = 0;
+	player.maxFrames = player_max_frames;
+	player.dimension->x = player_x;
+	player.dimension->y = player_y;
+	player.dimension->width = 2;
+	player.dimension->height = 3;
+	player.frames = player_frames;
+	isTank = 0;
+}
+
+void setTank(){
+	clearSprite(&player, 4, 6);
+	player.numTiles = 4;
+	player.frameCount = 0;
+	player.maxFrames = tank_max_frames;
+	player.dimension->x = player_x;
+	player.dimension->y = player_y + 8;
+	player.dimension->width = 2;
+	player.dimension->height = 2;
+	player.frames = tank_frames;
+
+	isTank = 1;
 }
 
 void setCactus(Object *enemy){
@@ -289,6 +361,7 @@ void setGameData(){
 	set_sprite_data(0, 24, hacker_tiles);
 	set_sprite_data(24, 9, fly_tiles);
 	set_sprite_data(33, 4, cactus_tiles);
+	set_sprite_data(37, 8, tank_tiles);
 
 	set_bkg_data(0, 2, ground_tiles);
 

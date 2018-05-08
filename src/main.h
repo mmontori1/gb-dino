@@ -5,6 +5,7 @@
 #include <stdio.h>
 
 #include "helpers/global.h"
+#include "helpers/clear.h"
 
 #include "models/data.h"
 #include "models/gameState.h"

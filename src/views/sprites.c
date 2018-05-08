@@ -7,6 +7,7 @@ UINT8 xj;
 UINT8 yj;
 Object* curSprite;
 UINT8 curFrame;
+UINT16 gameTime;
 
 void drawSprites(Object **sprites, UINT8 size){
 	for(i = 0; i < size; ++i){

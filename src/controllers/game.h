@@ -5,6 +5,8 @@
 #include "state.h"
 
 #include "../helpers/mtime.h"
+#include "../helpers/clear.h"
+
 #include "../models/data.h"
 #include "../models/gameState.h"
 #include "../models/object.h"
@@ -19,12 +21,16 @@ void gameLoop();
 
 void jumpCheck();
 void jumpEnd();
-void playerDown();
 void beginJump();
+void playerDown();
+void switchTank();
+void turnSwitchBack();
 
 void enemyMovement();
 void checkX(INT16 *val);
 void pickEnemy(Object *enemy);
+void setHacker();
+void setTank();
 void setCactus(Object *enemy);
 void setFly(Object *enemy);
 
