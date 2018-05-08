@@ -103,22 +103,22 @@ void initGame(){
 	player_topleft_frames.frames = player_topleft_data;
 	player_topright_frames.numFrames = 1;
 	player_topright_frames.frames = player_topright_data;
-	player_midleft_frames.numFrames = 8;
+	player_midleft_frames.numFrames = player_max_frames;
 	player_midleft_frames.frames = player_midleft_data;
-	player_midright_frames.numFrames = 8;
+	player_midright_frames.numFrames = player_max_frames;
 	player_midright_frames.frames = player_midright_data;
-	player_botleft_frames.numFrames = 8;
+	player_botleft_frames.numFrames = player_max_frames;
 	player_botleft_frames.frames = player_botleft_data;
-	player_botright_frames.numFrames = 8;
+	player_botright_frames.numFrames = player_max_frames;
 	player_botright_frames.frames = player_botright_data;
 
 	fly_topleft_frames.numFrames = 1;
 	fly_topleft_frames.frames = fly_topleft_data;
-	fly_topmid_frames.numFrames = 4;
+	fly_topmid_frames.numFrames = fly_max_frames;
 	fly_topmid_frames.frames = fly_topmid_data;
-	fly_topright_frames.numFrames = 4;
+	fly_topright_frames.numFrames = fly_max_frames;
 	fly_topright_frames.frames = fly_topright_data;
-	fly_botleft_frames.numFrames = 4;
+	fly_botleft_frames.numFrames = fly_max_frames;
 	fly_botleft_frames.frames = fly_botleft_data;
 	fly_botmid_frames.numFrames = 1;
 	fly_botmid_frames.frames = fly_botmid_data;
@@ -137,7 +137,7 @@ void initGame(){
 	player.startTile = 0;
 	player.numTiles = 6;
 	player.frameCount = 0;
-	player.maxFrames = 8;
+	player.maxFrames = player_max_frames;
 	player.dimension = &player_dimension;
 	player.frames = player_frames;
 
@@ -259,7 +259,7 @@ void setCactus(Object *enemy){
 void setFly(Object *enemy){
 	enemy->numTiles = 6;
 	enemy->frameCount = 0;
-	enemy->maxFrames = 4;
+	enemy->maxFrames = fly_max_frames;
 	enemy->dimension->x = fly_dimension.x;
 	enemy->dimension->y = fly_dimension.y;
 	enemy->dimension->width = fly_dimension.width;
