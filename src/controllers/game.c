@@ -2,8 +2,6 @@
 #include <stdio.h>
 
 UINT8 i;
-UINT16 gameTime;
-UINT8 rate;
 UINT8 speed;
 
 INT8 jumpCount;
@@ -152,7 +150,6 @@ void initGame(){
 }
 
 void setupGame(State *state){
-	rate = 0;
 	speed = 3;
 
 	isJump = 0;
