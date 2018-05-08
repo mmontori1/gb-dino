@@ -6,6 +6,8 @@ UINT16 gameTime;
 UINT8 rate;
 UINT8 speed;
 
+UINT16 delta;
+
 INT8 jumpCount;
 BOOLEAN isJump;
 UINT8 goingUp;
@@ -79,8 +81,8 @@ const UINT8 JUMP_ARR_LENGTH = 12;
 UINT8 jump_arr[12] = {3, 3, 3, 3, 3, 2, 2, 2, 1, 1, 0, 0};
 
 void initGame(){
-	rate = 2;
-	speed = 1;
+	rate = 5;
+	speed = 3;
 
 	isJump = 0;
 	jumpCount = 0;
@@ -161,6 +163,8 @@ void initGame(){
 }
 
 void setupGame(State *state){
+	delta = 0;
+	setWait(delta);
 	a_button = beginJump;
 	state->score = 0;
 	state->bkg = game_bkg;
@@ -171,13 +175,15 @@ void setupGame(State *state){
 
 void gameLoop(){
 	if(intervalCheck(&gameTime, rate)){
-		scroll_bkg(1,0);
+		// if(speed == 1) speed = 4;
+		// else if(speed == 4) speed = 1;
 		enemyMovement();
+		scroll_bkg(1,0);
 		jumpCheck();
 	}
 }
 
-void enemyMovement(){
+void enemyMovement() {
 	if(enemyOne.dimension->x != enemy_x){
 		enemyOne.dimension->x -= speed;
 	}
