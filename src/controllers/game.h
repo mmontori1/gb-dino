@@ -9,7 +9,7 @@
 #include "../models/gameState.h"
 #include "../models/object.h"
 #include "../models/backdrop.h"
-#include "../models/animator.h"
+#include "../models/frames.h"
 
 void initGame();
 void setupGame(State *state);

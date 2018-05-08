@@ -2,7 +2,7 @@
 #define OBJECT_H
 
 #include <asm/types.h>
-#include "animator.h"
+#include "frames.h"
 #include "dimension.h"
 
 typedef struct Object_s {
