@@ -173,10 +173,11 @@ void gameLoop(){
 	if(intervalCheck(&gameTime, rate)){
 		// if(speed == 1) speed = 4;
 		// else if(speed == 4) speed = 1;
-		enemyMovement();
+	
 		scroll_bkg(1,0);
-		jumpCheck();
 	}
+	enemyMovement();
+	jumpCheck();
 }
 
 void enemyMovement() {
