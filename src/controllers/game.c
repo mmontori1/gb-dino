@@ -275,11 +275,11 @@ void switchTank(){
 	if(!isJump && oneSwitch){
 		if(!isTank){
 			setTank();
-			if(joypad() & J_B) oneSwitch = 0;
+			if(B_PRESS) oneSwitch = 0;
 		}
 		else{
 			setHacker();
-			if(joypad() & J_B) oneSwitch = 0;
+			if(B_PRESS) oneSwitch = 0;
 		}
 	}
 }

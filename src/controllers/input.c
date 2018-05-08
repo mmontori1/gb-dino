@@ -1,32 +1,14 @@
 #include "input.h"
 
 void checkInput(State *state){
-	switch(joypad()) {
-		case J_START :
-			if(start_button) (*start_button)(state);
-			break;
-		case J_SELECT :
-			if(select_button) (*select_button)(state);
-			break;
-		case J_UP :
-			if(up_button) (*up_button)();
-			break;
-		case J_LEFT :
-			if(left_button) (*left_button)();
-			break;
-		case J_RIGHT :
-			if(right_button) (*right_button)();
-			break;
-		case J_DOWN :
-			if(down_button) (*down_button)();
-			break;
-		case J_A :
-			if(a_button) (*a_button)();
-			break;
-		case J_B :
-			if(b_button) (*b_button)();
-			break;
-	}
+	if(start_button && START_PRESS) (*start_button)(state);
+	if(select_button && SELECT_PRESS) (*select_button)(state);
+	if(up_button && UP_PRESS) (*up_button)();
+	if(left_button && LEFT_PRESS) (*left_button)();
+	if(right_button && RIGHT_PRESS) (*right_button)();
+	if(down_button && DOWN_PRESS) (*down_button)();
+	if(a_button && A_PRESS) (*a_button)();
+	if(b_button && B_PRESS) (*b_button)();
 }
 
 void clearInputs(){
