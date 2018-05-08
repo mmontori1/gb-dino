@@ -23,7 +23,7 @@ void playerDown();
 void beginJump();
 
 void enemyMovement();
-void checkX(INT8 *val);
+void checkX(INT16 *val);
 void pickEnemy(Object *enemy);
 void setCactus(Object *enemy);
 void setFly(Object *enemy);

@@ -193,8 +193,8 @@ void enemyMovement() {
 			enemyTwo.dimension->x -= speed;
 		}
 	}
-	checkX(enemyOne.dimension->x);
-	checkX(enemyTwo.dimension->x);
+	checkX(&enemyOne.dimension->x);
+	checkX(&enemyTwo.dimension->x);
 }
 
 void jumpCheck(){
@@ -247,9 +247,9 @@ void playerDown(){
 	}
 }
 
-void checkX(INT8 *val){
-	if(*val < 0) *val = 248;
-	if(*val > 248) *val = enemy_x;
+void checkX(INT16 *val){
+	if(*val < L_OOF) *val = enemy_x;
+	if(*val > R_OOF) *val = enemy_x;
 }
 
 void pickEnemy(Object *enemy){

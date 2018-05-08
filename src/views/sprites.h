@@ -7,5 +7,6 @@
 #include "../models/gameState.h"
 
 void drawSprites(Object **sprites, UINT8 size);
+BOOLEAN inFrameX(INT16 x);
 
 #endif

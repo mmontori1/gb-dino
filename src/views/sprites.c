@@ -11,6 +11,7 @@ UINT8 curFrame;
 void drawSprites(Object **sprites, UINT8 size){
 	for(i = 0; i < size; ++i){
 		curSprite = sprites[i];
+		if(!inFrameX(curSprite->dimension->x)) continue;
 		for(j = 0; j < curSprite->numTiles; ++j){
 			curFrame = curSprite->frameCount;
 			if(curSprite->frames[j]->numFrames == 1) curFrame = 0;
@@ -41,4 +42,12 @@ void drawSprites(Object **sprites, UINT8 size){
 		}
 		if(++curSprite->frameCount >= curSprite->maxFrames) curSprite->frameCount = 0;
 	}
+}
+
+BOOLEAN inFrameX(INT16 x){
+	if(x >= enemy_x) return 0;
+	if(x < L_OOF){
+		return 0;
+	}
+	return 1;
 }
