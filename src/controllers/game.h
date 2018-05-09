@@ -17,16 +17,14 @@ void initGame();
 void setupGame(State *state);
 void setGameData();
 void gameLoop();
-
-
 void jumpCheck();
 void jumpEnd();
 void beginJump();
 void playerDown();
 void switchTank();
 void turnSwitchBack();
-
 void enemyMovement();
+void checkDimensions();
 void checkX(INT16 *val);
 void checkPlayerY(UINT8 *val);
 void pickEnemy(Object *enemy);

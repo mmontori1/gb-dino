@@ -203,6 +203,7 @@ void gameLoop(){
 	jumpCheck();
 	scroll_bkg(1, 0);
 	turnSwitchBack();
+	checkDimensions();
 }
 
 void enemyMovement() {
@@ -222,8 +223,6 @@ void enemyMovement() {
 			enemyTwo.dimension->x -= speed;
 		}
 	}
-	checkX(&enemyOne.dimension->x);
-	checkX(&enemyTwo.dimension->x);
 }
 
 void jumpCheck(){
@@ -252,7 +251,6 @@ void jumpCheck(){
 			}
 		}
 	}
-	checkPlayerY(&player.dimension->y);
 }
 
 void jumpEnd(){
@@ -293,13 +291,24 @@ void playerDown(){
 	isDrop = 1;
 }
 
+void checkDimensions(){
+	checkX(&enemyOne.dimension->x);
+	checkX(&enemyTwo.dimension->x);
+	checkPlayerY(&player.dimension->y);
+}
+
 void checkX(INT16 *val){
 	if(*val < L_OOF) *val = enemy_x;
 	if(*val > R_OOF) *val = enemy_x;
 }
 
 void checkPlayerY(UINT8 *val){
-	if(*val > player_y) *val = player_y;
+	if(isTank){
+		if(*val > player_y + 8) *val = player_y + 8;
+	}
+	else {
+		if(*val > player_y) *val = player_y;
+	}
 }
 
 void pickEnemy(Object *enemy){
