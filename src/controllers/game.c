@@ -201,7 +201,7 @@ void setupGame(State *state){
 void gameLoop(){
 	enemyMovement();
 	jumpCheck();
-	scroll_bkg(1,0);
+	scroll_bkg(1, 0);
 	turnSwitchBack();
 }
 
@@ -228,7 +228,7 @@ void enemyMovement() {
 
 void jumpCheck(){
 	if(isJump) {
-		player.frameCount = 5;
+		player.frameCount = 10;
 		if(goingUp && !isDrop) {
 			player.dimension->y -= jump_arr[jumpCount];
 			++jumpCount;
