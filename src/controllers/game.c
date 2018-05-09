@@ -252,6 +252,7 @@ void jumpCheck(){
 			}
 		}
 	}
+	checkPlayerY(&player.dimension->y);
 }
 
 void jumpEnd(){
@@ -295,6 +296,10 @@ void playerDown(){
 void checkX(INT16 *val){
 	if(*val < L_OOF) *val = enemy_x;
 	if(*val > R_OOF) *val = enemy_x;
+}
+
+void checkPlayerY(UINT8 *val){
+	if(*val > player_y) *val = player_y;
 }
 
 void pickEnemy(Object *enemy){

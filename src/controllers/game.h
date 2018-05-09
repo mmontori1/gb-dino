@@ -28,6 +28,7 @@ void turnSwitchBack();
 
 void enemyMovement();
 void checkX(INT16 *val);
+void checkPlayerY(UINT8 *val);
 void pickEnemy(Object *enemy);
 void setHacker();
 void setTank();
