@@ -9,6 +9,8 @@ Object* curSprite;
 UINT8 curFrame;
 UINT16 gameTime;
 
+UINT8 eightArr[] = {0, 8, 16, 24};
+
 void drawSprites(Object **sprites, UINT8 size){
 	for(i = 0; i < size; ++i){
 		curSprite = sprites[i];
@@ -37,8 +39,8 @@ void drawSprites(Object **sprites, UINT8 size){
 			set_sprite_tile(j + curSprite->startTile, curSprite->frames[j]->frames[curFrame]);
 			move_sprite(
 				j + curSprite->startTile, 
-				curSprite->dimension->x + 8 * xj, 
-				curSprite->dimension->y + 8 * yj
+				curSprite->dimension->x + eightArr[xj], 
+				curSprite->dimension->y + eightArr[yj]
 			);
 		}
 		if(++curSprite->frameCount >= curSprite->maxFrames) curSprite->frameCount = 0;
