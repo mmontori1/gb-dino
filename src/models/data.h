@@ -3,11 +3,13 @@
 
 #include "object.h"
 
-//background tiles
+//background/window tiles
 extern const unsigned char ground_tiles[];
+extern const unsigned char hud_tiles[];
 
-//background map
+//background/window map
 extern const unsigned char ground_map[];
+extern const unsigned char hud_map[];
 extern const unsigned char blank_map[];
 
 //sprite tiles
