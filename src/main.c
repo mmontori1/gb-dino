@@ -34,7 +34,7 @@ void hideWin(){
 
 void init() {
 	STAT_REG = 0x45;
-    LYC_REG = 0x18; //top three 8x8 lines for window
+    LYC_REG = 0x17; //top three 8x8 lines for window
 
 	disable_interrupts();
 	DISPLAY_OFF;
