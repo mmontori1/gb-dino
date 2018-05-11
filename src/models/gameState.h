@@ -11,7 +11,6 @@ typedef enum Action {
 	GAME,
 	OVER,
 	CLEAR
-	//PAUSE??
 } Action;
 
 typedef struct State_s {

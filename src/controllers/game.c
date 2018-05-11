@@ -74,17 +74,27 @@ Dimension cactus_dimension;
 Dimension e1_dimension;
 Dimension e2_dimension;
 Dimension ground_dimension;
-Dimension hud_dimension;
+Dimension hud_top_dimension;
+Dimension hud_left_dimension;
+Dimension hud_right_dimension;
+Dimension hud_bot_dimension;
 
 Backdrop ground;
-Backdrop hud;
+Backdrop hud_top;
+Backdrop hud_left;
+Backdrop hud_right;
+Backdrop hud_bot;
 
 Backdrop *game_bkg[1] = {
 	&ground
 };
 
-Backdrop *game_win[1] = {
-	&hud
+#define num_game_win 4
+Backdrop *game_win[num_game_win] = {
+	&hud_top,
+	&hud_left,
+	&hud_right,
+	&hud_bot
 };
 
 Object *game_objects[3] = {
@@ -105,13 +115,37 @@ void initGame(){
 	ground.dimension = &ground_dimension;
 	ground.tiles = ground_map;
 
-	hud_dimension.x = 0;
-	hud_dimension.y = 0;
-	hud_dimension.width = 20;
-	hud_dimension.height = 3;
+	hud_top_dimension.x = 0;
+	hud_top_dimension.y = 0;
+	hud_top_dimension.width = 20;
+	hud_top_dimension.height = 1;
 
-	hud.dimension = &hud_dimension;
-	hud.tiles = hud_map;
+	hud_top.dimension = &hud_top_dimension;
+	hud_top.tiles = hud_edges_map;
+
+	hud_left_dimension.x = 0;
+	hud_left_dimension.y = 1;
+	hud_left_dimension.width = 1;
+	hud_left_dimension.height = 1;
+
+	hud_left.dimension = &hud_left_dimension;
+	hud_left.tiles = hud_sides_map;
+
+	hud_right_dimension.x = 19;
+	hud_right_dimension.y = 1;
+	hud_right_dimension.width = 1;
+	hud_right_dimension.height = 1;
+
+	hud_right.dimension = &hud_right_dimension;
+	hud_right.tiles = hud_sides_map;
+
+	hud_bot_dimension.x = 0;
+	hud_bot_dimension.y = 2;
+	hud_bot_dimension.width = 20;
+	hud_bot_dimension.height = 1;
+
+	hud_bot.dimension = &hud_bot_dimension;
+	hud_bot.tiles = hud_edges_map;
 
 	player_dimension.x = player_x;
 	player_dimension.y = player_y;
@@ -205,7 +239,7 @@ void setupGame(State *state){
 	state->bkg = game_bkg;
 	state->numBkg = 1;
 	state->win = game_win;
-	state->numWin = 1;
+	state->numWin = num_game_win;
 	state->sprites = game_objects;
 	state->numSprites = 3;
 
