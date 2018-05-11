@@ -1,16 +1,17 @@
 #include "window.h"
 
-/*
-	once i have window to draw, try to add this into main:
+UINT8 i;
 
-	STAT_REG |= 0x40; // enable LYC=LY interrupt
-	LYC_REG = 0; // the scanline on which to trigger
-	disable_interrupts();
-	add_LCD(hideWin);
-	enable_interrupts();
-	set_interrupts(LCD_IFLAG|VBL_IFLAG);
-
-	void hideWin(){
-		HIDE_WIN;
+void drawWin(Backdrop **win, UINT8 numWin){
+	for(i = 0; i < numWin; ++i){
+		set_win_tiles(
+			win[i]->dimension->x, 
+			win[i]->dimension->y, 
+			win[i]->dimension->width, 
+			win[i]->dimension->height, 
+			win[i]->tiles
+		);
 	}
-*/
+
+	SHOW_WIN;
+}

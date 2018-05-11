@@ -7,7 +7,7 @@ OBJS = main.o \
 		helpers/global.o helpers/mtime.o helpers/clear.o \
 		models/data.o models/gameState.o \
 		controllers/input.o controllers/start.o controllers/game.o controllers/over.o controllers/state.o \
-		views/background.o views/sprites.o
+		views/background.o views/window.o views/sprites.o
 
 # Compile and Assemble C Source Files into Object Files
 all: $(BIN)

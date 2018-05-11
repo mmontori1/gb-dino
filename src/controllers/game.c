@@ -74,11 +74,17 @@ Dimension cactus_dimension;
 Dimension e1_dimension;
 Dimension e2_dimension;
 Dimension ground_dimension;
+Dimension hud_dimension;
 
 Backdrop ground;
+Backdrop hud;
 
 Backdrop *game_bkg[1] = {
 	&ground
+};
+
+Backdrop *game_win[1] = {
+	&hud
 };
 
 Object *game_objects[3] = {
@@ -98,6 +104,14 @@ void initGame(){
 
 	ground.dimension = &ground_dimension;
 	ground.tiles = ground_map;
+
+	hud_dimension.x = 0;
+	hud_dimension.y = 0;
+	hud_dimension.width = 20;
+	hud_dimension.height = 3;
+
+	hud.dimension = &hud_dimension;
+	hud.tiles = hud_map;
 
 	player_dimension.x = player_x;
 	player_dimension.y = player_y;
@@ -190,6 +204,8 @@ void setupGame(State *state){
 	state->score = 0;
 	state->bkg = game_bkg;
 	state->numBkg = 1;
+	state->win = game_win;
+	state->numWin = 1;
 	state->sprites = game_objects;
 	state->numSprites = 3;
 
@@ -379,4 +395,5 @@ void setGameData(){
 
 	set_bkg_data(0, 2, ground_tiles);
 
+	set_win_data(2, 5, hud_tiles);
 }

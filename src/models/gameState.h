@@ -23,6 +23,9 @@ typedef struct State_s {
 	Backdrop **bkg;
 	UINT8 numBkg;
 
+	Backdrop **win;
+	UINT8 numWin;
+
 	Object **sprites;
 	UINT8 numSprites;
 } State;

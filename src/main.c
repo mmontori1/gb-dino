@@ -4,7 +4,6 @@ State state;
 
 void main() {
 	init();
-	set_win_data(2, 5, hud_tiles);
 	while(1) {
 		wait_vbl_done();
 		// Logic (controllers manipulate models or data)
@@ -24,7 +23,7 @@ void vblCallback(){
 	if(VBL_FLAG){
 		if(state.setData != NULL) state.setData();
 		drawBkg(state.bkg, state.numBkg);
-		set_win_tiles(0, 0, 20, 3, hud_map);
+		drawWin(state.win, state.numWin);
 		VBL_FLAG_OFF;
 	}
 }
