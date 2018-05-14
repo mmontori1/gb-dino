@@ -12,6 +12,7 @@ void main() {
 		wait_vbl_done();
 		// Draw (views draw screen based on models)
 		drawSprites(state.sprites, state.numSprites);
+		delay(5);
 	}
 }
 
