@@ -1,7 +1,6 @@
 #include "game.h"
 #include <stdio.h>
 
-UINT8 i;
 UINT8 speed;
 
 INT8 jumpCount;
