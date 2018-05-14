@@ -1,6 +1,6 @@
 #include "window.h"
 
-UINT8 i;
+#include "../helpers/loop.h"
 
 void drawWin(Backdrop **win, UINT8 numWin){
 	for(i = 0; i < numWin; ++i){

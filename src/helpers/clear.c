@@ -1,7 +1,7 @@
 #include "clear.h"
 #include "gb/gb.h"
 
-UINT8 i;
+#include "loop.h"
 
 void clearBkg(){
 	set_bkg_tiles(0, 0, 32, 18, blank_map);

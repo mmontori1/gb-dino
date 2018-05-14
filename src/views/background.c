@@ -1,6 +1,6 @@
 #include "background.h"
 
-UINT8 i;
+#include "../helpers/loop.h"
 
 void drawBkg(Backdrop **bkg, UINT8 numBkg){
 	for(i = 0; i < numBkg; ++i){

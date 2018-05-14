@@ -1,8 +1,7 @@
 #include "sprites.h"
 
-UINT8 i;
-UINT8 j;
-UINT8 k;
+#include "../helpers/loop.h"
+
 UINT8 xj;
 UINT8 yj;
 Object* curSprite;
