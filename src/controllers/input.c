@@ -1,8 +1,8 @@
 #include "input.h"
 
-void checkInput(State *state){
-	if(start_button && START_PRESS) (*start_button)(state);
-	if(select_button && SELECT_PRESS) (*select_button)(state);
+void checkInput(){
+	if(start_button && START_PRESS) (*start_button)();
+	if(select_button && SELECT_PRESS) (*select_button)();
 	if(up_button && UP_PRESS) (*up_button)();
 	if(left_button && LEFT_PRESS) (*left_button)();
 	if(right_button && RIGHT_PRESS) (*right_button)();
@@ -22,8 +22,8 @@ void clearInputs(){
 	b_button = NULL;
 }
 
-void (*start_button) (State *);
-void (*select_button) (State *);
+void (*start_button) ();
+void (*select_button) ();
 void (*up_button) ();
 void (*left_button) ();
 void (*right_button) ();

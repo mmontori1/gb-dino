@@ -1,14 +1,12 @@
 #include "main.h"
 
-State state;
-
 void main() {
 	init();
 	while(1) {
 		wait_vbl_done();
 		// Logic (controllers manipulate models or data)
 
-		checkInput(&state);
+		checkInput();
 		if(state.updateLogic != NULL) state.updateLogic();
 
 		wait_vbl_done();
@@ -22,6 +20,7 @@ void vblCallback(){
 	SHOW_WIN;
 	if(VBL_FLAG){
 		if(state.setData != NULL) state.setData();
+
 		drawBkg(state.bkg, state.numBkg);
 		drawWin(state.win, state.numWin);
 		VBL_FLAG_OFF;
@@ -40,7 +39,7 @@ void init() {
 	DISPLAY_OFF;
 	SPRITES_8x8;
 
-	updateState(&state, START);
+	updateState(START);
 
 	add_VBL(vblCallback);
 	add_LCD(hideWin);

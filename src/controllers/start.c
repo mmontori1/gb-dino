@@ -1,12 +1,13 @@
 #include "start.h"
+#include <stdio.h>
 
-void setupStart(State *state){
+void setupStart(){
 	start_button = startGame;
-	state->numBkg = 0;
-	state->numSprites = 0;
+	state.numBkg = 0;
+	state.numSprites = 0;
 }
 
-void startGame(State *state){
-	updateState(state, GAME);
+void startGame(){
+	updateState(GAME);
 	waitpadup();
 }

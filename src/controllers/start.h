@@ -6,7 +6,7 @@
 
 #include "../models/gameState.h"
 
-void setupStart(State *);
-void startGame(State *);
+void setupStart();
+void startGame();
 
 #endif

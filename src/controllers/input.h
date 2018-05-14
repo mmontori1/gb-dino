@@ -12,11 +12,11 @@
 #define A_PRESS joypad() & J_A
 #define B_PRESS joypad() & J_B
 
-void checkInput(State *);
+void checkInput();
 void clearInputs();
 
-extern void (*start_button) (State *);
-extern void (*select_button) (State *);
+extern void (*start_button) ();
+extern void (*select_button) ();
 extern void (*up_button) ();
 extern void (*left_button) ();
 extern void (*right_button) ();

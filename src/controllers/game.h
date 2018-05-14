@@ -14,7 +14,7 @@
 #include "../models/frames.h"
 
 void initGame();
-void setupGame(State *state);
+void setupGame();
 void setGameData();
 void gameLoop();
 void jumpCheck();

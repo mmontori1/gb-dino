@@ -16,6 +16,7 @@ typedef enum Action {
 typedef struct State_s {
 	Action type;
 	UINT16 score;
+
 	void (*setData) ();
 	void (*updateLogic) ();
 
@@ -28,5 +29,7 @@ typedef struct State_s {
 	Object **sprites;
 	UINT8 numSprites;
 } State;
+
+extern State state;
 
 #endif

@@ -7,6 +7,6 @@
 
 #include "../models/gameState.h"
 
-void updateState(State *, Action type);
+void updateState(Action type);
 
 #endif

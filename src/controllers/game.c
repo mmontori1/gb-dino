@@ -218,7 +218,7 @@ void initGame(){
 	enemyTwo.dimension = &e2_dimension;
 }
 
-void setupGame(State *state){
+void setupGame(){
 	speed = 3;
 
 	isJump = 0;
@@ -234,13 +234,13 @@ void setupGame(State *state){
 	up_button = beginJump;
 	down_button = playerDown;
 
-	state->score = 0;
-	state->bkg = game_bkg;
-	state->numBkg = 1;
-	state->win = game_win;
-	state->numWin = num_game_win;
-	state->sprites = game_objects;
-	state->numSprites = 3;
+	state.score = 0;
+	state.bkg = game_bkg;
+	state.numBkg = 1;
+	state.win = game_win;
+	state.numWin = num_game_win;
+	state.sprites = game_objects;
+	state.numSprites = 3;
 
 	setHacker();
 	pickEnemy(&enemyOne);
