@@ -248,6 +248,10 @@ void setupGame(){
 }
 
 void gameLoop(){
+	// TO DO: If true, change to GAME OVER
+	checkCollisions(&player_dimension, &e1_dimension);
+	checkCollisions(&player_dimension, &e2_dimension);
+
 	enemyMovement();
 	jumpCheck();
 	scroll_bkg(1, 0);
@@ -358,6 +362,36 @@ void checkPlayerY(UINT8 *val){
 	else {
 		if(*val > player_y) *val = player_y;
 	}
+}
+
+#define margin 3
+INT16 firstTopX;
+INT16 firstTopY;
+INT16 firstBotX;
+INT16 firstBotY;
+INT16 secondTopX;
+INT16 secondTopY;
+INT16 secondBotX;
+INT16 secondBotY;
+BOOLEAN checkCollisions(Dimension *first, Dimension *second){
+	firstTopX = first->x + margin;
+	firstTopY = first->y + margin;
+	firstBotX = first->x + first->width * 8 - margin;
+	firstBotY = first->y + first->height * 8 - margin;
+	secondTopX = second->x + margin;
+	secondTopY = second->y + margin;
+	secondBotX = second->x + second->width * 8 - margin;
+	secondBotY = second->y + second->height * 8 - margin;
+
+	// sprites are not over same x 
+	if(firstTopX > secondBotX) return 0;
+	if(secondTopX > firstBotX) return 0;
+
+	// sprites are not over same y
+	if(firstTopY > secondBotY) return 0;
+	if(secondTopY > firstBotY) return 0;
+
+	return 1;
 }
 
 void pickEnemy(Object *enemy){
