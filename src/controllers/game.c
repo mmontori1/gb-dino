@@ -472,7 +472,7 @@ void setGameData(){
 
 	set_bkg_data(0, 2, ground_tiles);
 
-	set_win_data(2, 5, hud_tiles);
+	set_win_data(2, 8, hud_tiles);
 }
 
 void gameOver(){
