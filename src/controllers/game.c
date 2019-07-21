@@ -224,6 +224,8 @@ void initGame(){
 }
 
 void setupGame(){
+    LYC_REG = 0x17; //top three 8x8 lines for window
+
 	speed = 3;
 
 	isJump = 0;

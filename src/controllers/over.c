@@ -8,6 +8,8 @@ Backdrop *over_bkg[1] = {
 };
 
 void setupOver(){
+	LYC_REG = 0x0; //window layer off screen
+	
 	start_button = restartGame;
 	state.score = 0;
 	state.bkg = over_bkg;
@@ -19,10 +21,10 @@ void setupOver(){
 }
 
 void initOver(){
-	screen_dimension.x = 3;
-	screen_dimension.y = 6;
-	screen_dimension.width = 14;
-	screen_dimension.height = 5;
+	screen_dimension.x = 0;
+	screen_dimension.y = 0;
+	screen_dimension.width = 20;
+	screen_dimension.height = 18;
 
 	screen.dimension = &screen_dimension;
 	screen.tiles = game_over_map;
