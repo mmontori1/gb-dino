@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 UINT8 speed;
-
+UINT8 numSpriteTiles;
 INT8 jumpCount;
 BOOLEAN isJump;
 BOOLEAN isDrop;
@@ -12,6 +12,8 @@ BOOLEAN oneSwitch;
 UINT8 goingUp;
 
 Object player;
+
+#define enemyMaxTiles 6
 Object enemyOne;
 Object enemyTwo;
 
@@ -96,6 +98,7 @@ Backdrop *game_win[num_game_win] = {
 	&hud_bot
 };
 
+#define num_game_objects 3
 Object *game_objects[3] = {
 	&player,
 	&enemyOne,
@@ -216,6 +219,8 @@ void initGame(){
 	enemyOne.dimension = &e1_dimension;
 	enemyTwo.startTile = 12;
 	enemyTwo.dimension = &e2_dimension;
+
+	numSpriteTiles = player.numTiles + 2 * enemyMaxTiles;
 }
 
 void setupGame(){
@@ -240,7 +245,7 @@ void setupGame(){
 	state.win = game_win;
 	state.numWin = num_game_win;
 	state.sprites = game_objects;
-	state.numSprites = 3;
+	state.numSprites = num_game_objects;
 
 	setHacker();
 	pickEnemy(&enemyOne);
@@ -248,9 +253,14 @@ void setupGame(){
 }
 
 void gameLoop(){
-	// TO DO: If true, change to GAME OVER
-	checkCollisions(&player_dimension, &e1_dimension);
-	checkCollisions(&player_dimension, &e2_dimension);
+	if(checkCollisions(&player_dimension, &e1_dimension)){
+		gameOver();
+		updateState(OVER);
+	}
+	else if(checkCollisions(&player_dimension, &e2_dimension)){
+		gameOver();
+		updateState(OVER);
+	}
 
 	enemyMovement();
 	jumpCheck();
@@ -463,4 +473,9 @@ void setGameData(){
 	set_bkg_data(0, 2, ground_tiles);
 
 	set_win_data(2, 5, hud_tiles);
+}
+
+void gameOver(){
+	move_bkg(-1, 0);
+	clearAll(numSpriteTiles);
 }

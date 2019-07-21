@@ -33,5 +33,6 @@ void setHacker();
 void setTank();
 void setCactus(Object *enemy);
 void setFly(Object *enemy);
+void gameOver();
 
 #endif
