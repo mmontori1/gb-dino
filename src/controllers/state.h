@@ -1,6 +1,7 @@
 #ifndef STATE_H
 #define STATE_H
 
+#include "selector.h"
 #include "start.h"
 #include "game.h"
 #include "over.h"

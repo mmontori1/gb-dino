@@ -4,6 +4,8 @@
 #include "input.h"
 #include "state.h"
 
+#include "../controllers/selector.h"
+
 #include "../models/gameState.h"
 
 void setupStart();

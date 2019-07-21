@@ -8,7 +8,7 @@ void updateState(Action type, UINT8 numSpriteTiles){
 	switch(type){
 		case START :
 			setupStart();
-			state.setData = NULL;
+			state.setData = setSelectorData;
 			state.updateLogic = NULL;
 			break;
 		case GAME :

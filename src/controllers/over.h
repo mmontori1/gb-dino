@@ -4,7 +4,10 @@
 #include "input.h"
 #include "state.h"
 
+#include "../controllers/selector.h"
+
 #include "../helpers/clear.h"
+
 #include "../models/backdrop.h"
 #include "../models/data.h"
 #include "../models/dimension.h"

@@ -38,15 +38,16 @@ void init() {
 	DISPLAY_OFF;
 	SPRITES_8x8;
 
-	updateState(START, 0);
-
 	add_VBL(vblCallback);
 	add_LCD(hideWin);
 
 	printf(" ");
 	clearBkg();
+	initSelector();
 	initGame();
 	initOver();
+
+	updateState(START, 0);
 	SHOW_BKG;
 	SHOW_SPRITES;
 	SHOW_WIN;
