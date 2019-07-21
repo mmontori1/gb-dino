@@ -5,9 +5,13 @@
 #include "state.h"
 
 #include "../helpers/clear.h"
+#include "../models/backdrop.h"
+#include "../models/data.h"
+#include "../models/dimension.h"
 #include "../models/gameState.h"
 
 void setupOver();
+void initOver();
 void restartGame();
 
 #endif

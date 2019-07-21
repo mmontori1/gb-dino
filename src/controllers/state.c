@@ -1,8 +1,9 @@
 #include "state.h"
 
-void updateState(Action type){
+void updateState(Action type, UINT8 numSpriteTiles){
 	state.type = type;
 	clearInputs();
+	clearAll(numSpriteTiles);
 	
 	switch(type){
 		case START :

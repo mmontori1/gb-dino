@@ -8,6 +8,6 @@ void setupStart(){
 }
 
 void startGame(){
-	updateState(GAME);
+	updateState(GAME, 0);
 	waitpadup();
 }
