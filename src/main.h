@@ -13,6 +13,7 @@
 
 #include "controllers/input.h"
 #include "controllers/start.h"
+#include "controllers/selector.h"
 #include "controllers/game.h"
 #include "controllers/over.h"
 

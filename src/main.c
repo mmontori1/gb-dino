@@ -45,7 +45,7 @@ void init() {
 
 	printf(" ");
 	clearBkg();
-	initSelector();
+	setSelectorData();
 	initGame();
 	initOver();
 	SHOW_BKG;
