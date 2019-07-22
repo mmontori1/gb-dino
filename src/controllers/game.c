@@ -257,11 +257,11 @@ void setupGame(){
 void gameLoop(){
 	if(checkCollisions(&player_dimension, &e1_dimension)){
 		gameOver();
-		updateState(OVER, numSpriteTiles);
+		updateState(OVER);
 	}
 	else if(checkCollisions(&player_dimension, &e2_dimension)){
 		gameOver();
-		updateState(OVER, numSpriteTiles);
+		updateState(OVER);
 	}
 
 	enemyMovement();
@@ -478,5 +478,6 @@ void setGameData(){
 }
 
 void gameOver(){
+	clearAll();
 	move_bkg(-1, 0);
 }

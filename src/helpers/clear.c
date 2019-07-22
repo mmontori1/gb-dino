@@ -3,10 +3,10 @@
 
 #include "loop.h"
 
-void clearAll(UINT8 numTiles){
+void clearAll(){
 	clearBkg();
 	clearWin();
-	clearSprites(0, numTiles);
+	clearSprites();
 }
 
 void clearBkg(){
@@ -19,8 +19,8 @@ void clearSprite(Object *sprite, UINT8 start, UINT8 end){
 	}
 }
 
-void clearSprites(UINT8 start, UINT8 end){
-	for(i = start; i < end; ++i){
+void clearSprites(){
+	for(i = 0; i < 50; ++i){
 		set_sprite_tile(i, 0);
 	}
 }

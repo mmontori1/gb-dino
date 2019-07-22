@@ -31,6 +31,7 @@ void initOver(){
 }
 
 void restartGame(){
-	updateState(START, 0);
+	clearAll();
+	updateState(START);
 	waitpadup();
 }

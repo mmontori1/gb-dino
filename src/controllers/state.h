@@ -8,6 +8,6 @@
 #include "../helpers/clear.h"
 #include "../models/gameState.h"
 
-void updateState(Action type, UINT8 numSpriteTiles);
+void updateState(Action type);
 
 #endif

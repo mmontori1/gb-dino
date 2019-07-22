@@ -38,7 +38,7 @@ void init() {
 	DISPLAY_OFF;
 	SPRITES_8x8;
 
-	updateState(START, 0);
+	updateState(START);
 
 	add_VBL(vblCallback);
 	add_LCD(hideWin);
