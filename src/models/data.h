@@ -20,6 +20,7 @@ extern const unsigned char hacker_tiles[];
 extern const unsigned char tank_tiles[];
 extern const unsigned char fly_tiles[];
 extern const unsigned char cactus_tiles[];
+extern const unsigned char selector_tiles[];
 
 //animator frame data
 #define player_max_frames 16
@@ -48,5 +49,8 @@ extern const UINT8 cactus_topleft_data[1];
 extern const UINT8 cactus_topright_data[1];
 extern const UINT8 cactus_botleft_data[1];
 extern const UINT8 cactus_botright_data[1];
+
+#define selector_max_frames 12
+extern const UINT8 selector_only_data[selector_max_frames];
 
 #endif

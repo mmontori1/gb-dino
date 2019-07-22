@@ -8,5 +8,8 @@
 
 void setupStart();
 void startGame();
+void setSelectorData();
+void initSelector();
+void setSelector();
 
 #endif

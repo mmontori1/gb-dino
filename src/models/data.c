@@ -255,6 +255,12 @@ const unsigned char cactus_tiles[] = {
   0x0E,0xF2,0xFC,0x04,0xFC,0x04,0xF8,0xF8
 };
 
+
+const unsigned char selector_tiles[] = {
+  0x00,0x00,0x04,0x04,0x02,0x02,0x01,0x01,
+  0x02,0x02,0x04,0x04,0x00,0x00,0x00,0x00
+};
+
 const UINT8 player_topleft_data[1] = {1};
 const UINT8 player_topright_data[1] = {2};
 const UINT8 player_midleft_data[player_max_frames] = {3, 3, 5, 5, 7, 7, 3, 3, 3, 3, 8, 8, 10, 10, 3, 3};
@@ -278,3 +284,4 @@ const UINT8 cactus_topleft_data[1] = {33};
 const UINT8 cactus_topright_data[1] = {34};
 const UINT8 cactus_botleft_data[1] = {35};
 const UINT8 cactus_botright_data[1] = {36};
+const UINT8 selector_only_data[selector_max_frames] = {0, 0, 0, 0, 0, 0, 45, 45, 45, 45, 45, 45};
