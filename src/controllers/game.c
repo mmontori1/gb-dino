@@ -206,7 +206,7 @@ void initGame(){
 	player.frames = player_frames;
 
 	fly_dimension.x = enemy_x;
-	fly_dimension.y = fly_y;
+	fly_dimension.y = fly_low_y;
 	fly_dimension.width = 3;
 	fly_dimension.height = 2;
 
@@ -459,6 +459,11 @@ void setFly(Object *enemy){
 	enemy->frameCount = 0;
 	enemy->maxFrames = fly_max_frames;
 	enemy->dimension->x = fly_dimension.x;
+	if(getRand() & 1){
+		fly_dimension.y = fly_high_y;
+	} else {
+		fly_dimension.y = fly_low_y;
+	}
 	enemy->dimension->y = fly_dimension.y;
 	enemy->dimension->width = fly_dimension.width;
 	enemy->dimension->height = fly_dimension.height;

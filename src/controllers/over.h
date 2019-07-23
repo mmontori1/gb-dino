@@ -17,5 +17,6 @@ void returnToMenu();
 void selectorUp();
 void selectorDown();
 void selectorSelectOption();
+void updateSelector();
 
 #endif
