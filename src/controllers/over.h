@@ -13,5 +13,9 @@
 void setupOver();
 void initOver();
 void restartGame();
+void returnToMenu();
+void selectorUp();
+void selectorDown();
+void selectorSelectOption();
 
 #endif

@@ -288,4 +288,4 @@ const UINT8 cactus_topleft_data[1] = {33};
 const UINT8 cactus_topright_data[1] = {34};
 const UINT8 cactus_botleft_data[1] = {35};
 const UINT8 cactus_botright_data[1] = {36};
-const UINT8 selector_only_data[selector_max_frames] = {0, 0, 0, 0, 0, 0, 45, 45, 45, 45, 45, 45};
+const UINT8 selector_only_data[selector_max_frames] = {45, 45, 45, 45, 0, 0, 0, 0, 45, 45, 45, 45};
