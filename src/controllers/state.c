@@ -13,7 +13,7 @@ void updateState(Action type){
 			break;
 		case GAME :
 			setupGame();
-			state.setData = setGameData;
+			state.setData = NULL;
 			state.updateLogic = gameLoop;
 			break;
 		case OVER :

@@ -12,6 +12,7 @@ extern const unsigned char ground_map[];
 extern const unsigned char hud_map[];
 extern const unsigned char hud_edges_map[];
 extern const unsigned char hud_sides_map[];
+extern const unsigned char main_menu_map[];
 extern const unsigned char game_over_map[];
 extern const unsigned char blank_map[];
 

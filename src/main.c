@@ -1,5 +1,7 @@
 #include "main.h"
 
+UBYTE hasInit = 0;
+
 void main() {
 	init();
 	while(1) {
@@ -17,13 +19,15 @@ void main() {
 
 // handles applying sprite, window, or background data during vblank interrupt
 void vblCallback(){
-	SHOW_WIN;
-	if(VBL_FLAG){
-		if(state.setData != NULL) state.setData();
+	if(hasInit) {
+		SHOW_WIN;
+		if(VBL_FLAG){
+			if(state.setData != NULL) state.setData();
 
-		drawBkg(state.bkg, state.numBkg);
-		drawWin(state.win, state.numWin);
-		VBL_FLAG_OFF;
+			drawBkg(state.bkg, state.numBkg);
+			drawWin(state.win, state.numWin);
+			VBL_FLAG_OFF;
+		}
 	}
 }
 
@@ -45,7 +49,9 @@ void init() {
 
 	printf(" ");
 	clearBkg();
+	setGameData();
 	setSelectorData();
+	initStart();
 	initGame();
 	initOver();
 	SHOW_BKG;
@@ -56,4 +62,5 @@ void init() {
 	enable_interrupts();
 
     set_interrupts(VBL_IFLAG | LCD_IFLAG);
+    hasInit = 1;
 }

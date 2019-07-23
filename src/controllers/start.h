@@ -8,6 +8,7 @@
 #include "../models/gameState.h"
 
 void setupStart();
+void initStart();
 void startGame();
 
 #endif

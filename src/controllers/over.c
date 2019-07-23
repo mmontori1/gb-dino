@@ -6,38 +6,37 @@ Object *over_objects[1] = {
 	&selector
 };
 
-Dimension screen_dimension;
-Backdrop screen;
+Dimension over_screen_dimension;
+Backdrop over_screen;
 
 Backdrop *over_bkg[1] = {
-	&screen
+	&over_screen
 };
 
 typedef enum Option {
-	CONTINUE,
-	QUIT
+	OVER_CONTINUE,
+	OVER_QUIT
 } Option;
 
 #define option_size 2
 UINT8 selectorPosition;
 Option selectorChoice[option_size] = {
-	CONTINUE,
-	QUIT
+	OVER_CONTINUE,
+	OVER_QUIT
 };
 
-#define selector_x 40
-#define selector_y 96
+#define selector_over_x 40
+#define selector_over_y 96
 
 void setupOver(){
 	LYC_REG = 0x0; //window layer off screen
 	
 	selectorPosition = 0;
 	updateSelector();
-	setupSelector(&selector, selector_x, selector_y);
+	setupSelector(&selector, selector_over_x, selector_over_y);
 
 	up_button = selectorUp;
 	down_button = selectorDown;
-	state.score = 0;
 	state.bkg = over_bkg;
 	state.numBkg = 1;
 	state.win = NULL;
@@ -47,13 +46,13 @@ void setupOver(){
 }
 
 void initOver(){
-	screen_dimension.x = 0;
-	screen_dimension.y = 0;
-	screen_dimension.width = 20;
-	screen_dimension.height = 18;
+	over_screen_dimension.x = 0;
+	over_screen_dimension.y = 0;
+	over_screen_dimension.width = 20;
+	over_screen_dimension.height = 18;
 
-	screen.dimension = &screen_dimension;
-	screen.tiles = game_over_map;
+	over_screen.dimension = &over_screen_dimension;
+	over_screen.tiles = game_over_map;
 }
 
 void restartGame(){
@@ -70,7 +69,7 @@ void returnToMenu(){
 
 void updateSelector(){
 	if(selectorPosition >= 0 && selectorPosition < option_size){
-		moveSelector(selector_x, selector_y  + (selectorPosition * 16));
+		moveSelector(selector_over_x, selector_over_y  + (selectorPosition * 16));
 		selectorSelectOption();
 	}
 }
@@ -87,11 +86,11 @@ void selectorDown(){
 
 void selectorSelectOption(){
 	switch(selectorChoice[selectorPosition]){
-		case CONTINUE :
+		case OVER_CONTINUE :
 			start_button = restartGame;
 			a_button = restartGame;
 			break;
-		case QUIT :
+		case OVER_QUIT :
 			start_button = returnToMenu;
 			a_button = returnToMenu;
 			break;
