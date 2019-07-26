@@ -6,6 +6,7 @@
 //background/window tiles
 extern const unsigned char ground_tiles[];
 extern const unsigned char hud_tiles[];
+extern const unsigned char title_tiles[];
 
 //background/window map
 extern const unsigned char ground_map[];
