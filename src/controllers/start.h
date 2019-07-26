@@ -9,6 +9,7 @@
 
 void setupStart();
 void initStart();
+void setStartData();
 void startGame();
 
 #endif
