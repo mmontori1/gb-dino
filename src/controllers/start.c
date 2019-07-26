@@ -31,6 +31,8 @@ void setupStart(){
 }
 
 void initStart(){
+	setStartData();
+
 	start_screen_dimension.x = 0;
 	start_screen_dimension.y = 0;
 	start_screen_dimension.width = 20;
@@ -38,6 +40,10 @@ void initStart(){
 
 	start_screen.dimension = &start_screen_dimension;
 	start_screen.tiles = main_menu_map;
+}
+
+void setStartData(){
+	set_win_data(10, 31, title_tiles);
 }
 
 void startGame(){
