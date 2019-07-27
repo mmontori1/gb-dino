@@ -11,5 +11,8 @@ void setupStart();
 void initStart();
 void setStartData();
 void startGame();
+void selectorStartOption();
+void selectorStartUp();
+void selectorStartDown();
 
 #endif
