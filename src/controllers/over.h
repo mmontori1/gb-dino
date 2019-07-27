@@ -3,6 +3,7 @@
 
 #include "input.h"
 #include "state.h"
+#include "selector.h"
 
 #include "../helpers/clear.h"
 #include "../models/backdrop.h"
@@ -14,9 +15,8 @@ void setupOver();
 void initOver();
 void restartGame();
 void returnToMenu();
-void selectorUp();
-void selectorDown();
-void selectorSelectOption();
-void updateSelector();
+void selectorOverOption();
+void selectorOverUp();
+void selectorOverDown();
 
 #endif

@@ -13,16 +13,9 @@ Backdrop *over_bkg[1] = {
 	&over_screen
 };
 
-typedef enum Option {
-	OVER_CONTINUE,
-	OVER_QUIT
-} Option;
-
-#define option_size 2
-UINT8 selectorPosition;
-Option selectorChoice[option_size] = {
-	OVER_CONTINUE,
-	OVER_QUIT
+Option selectorOverChoice[option_size] = {
+	OPTION_1,
+	OPTION_2
 };
 
 #define selector_over_x 40
@@ -32,11 +25,11 @@ void setupOver(){
 	LYC_REG = 0x0; //window layer off screen
 	
 	selectorPosition = 0;
-	updateSelector();
 	setupSelector(&selector, selector_over_x, selector_over_y);
+	updateSelector(selectorOverOption, selector_over_x, selector_over_y);
 
-	up_button = selectorUp;
-	down_button = selectorDown;
+	up_button = selectorOverUp;
+	down_button = selectorOverDown;
 	state.bkg = over_bkg;
 	state.numBkg = 1;
 	state.win = NULL;
@@ -67,32 +60,25 @@ void returnToMenu(){
 	waitpadup();
 }
 
-void updateSelector(){
-	if(selectorPosition >= 0 && selectorPosition < option_size){
-		moveSelector(selector_over_x, selector_over_y  + (selectorPosition * 16));
-		selectorSelectOption();
-	}
-}
-
-void selectorUp(){
-	selectorPosition = 0;
-	updateSelector();
-}
-
-void selectorDown(){
-	selectorPosition = 1;
-	updateSelector();
-}
-
-void selectorSelectOption(){
-	switch(selectorChoice[selectorPosition]){
-		case OVER_CONTINUE :
+void selectorOverOption(){
+	switch(selectorOverChoice[selectorPosition]){
+		case OPTION_1 :
 			start_button = restartGame;
 			a_button = restartGame;
 			break;
-		case OVER_QUIT :
+		case OPTION_2 :
 			start_button = returnToMenu;
 			a_button = returnToMenu;
 			break;
 	}
+}
+
+void selectorOverUp(){
+	selectorPosition = 0;
+	updateSelector(selectorOverOption, selector_over_x, selector_over_y);
+}
+
+void selectorOverDown(){
+	selectorPosition = 1;
+	updateSelector(selectorOverOption, selector_over_x, selector_over_y);
 }

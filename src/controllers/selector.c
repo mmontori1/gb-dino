@@ -9,6 +9,8 @@ Frames *selector_frames[1] = {
 	&selector_only_frames
 };
 
+UINT8 selectorPosition;
+
 void setupSelector(Object *selector, UINT8 x, UINT8 y){
 	moveSelector(x, y);
 	selector_dimension.width = 1;
@@ -32,4 +34,11 @@ void moveSelector(UINT8 x, UINT8 y){
 
 void setSelectorData(){
 	set_sprite_data(45, 1, selector_tiles);
+}
+
+void updateSelector(void (*action)(), UINT8 x, UINT8 y){
+	if(selectorPosition >= 0 && selectorPosition < option_size){
+		moveSelector(x, y  + (selectorPosition * 16));
+		action();
+	}
 }
