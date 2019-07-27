@@ -269,6 +269,7 @@ void gameLoop(){
 	scroll_bkg(1, 0);
 	turnSwitchBack();
 	checkDimensions();
+	increaseScore();
 }
 
 void enemyMovement() {
@@ -404,6 +405,13 @@ BOOLEAN checkCollisions(Dimension *first, Dimension *second){
 	if(secondTopY > firstBotY) return 0;
 
 	return 1;
+}
+
+UINT16 scoreCheck;
+void increaseScore(){
+	if(intervalCheck(&scoreCheck, 15)){
+		++state.score;
+	}
 }
 
 void pickEnemy(Object *enemy){
