@@ -29,7 +29,6 @@ void checkDimensions();
 void checkX(INT16 *val);
 void checkPlayerY(UINT8 *val);
 BOOLEAN checkCollisions(Dimension *first, Dimension *second);
-void increaseScore();
 void pickEnemy(Object *enemy);
 void setHacker();
 void setTank();

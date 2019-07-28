@@ -12,6 +12,4 @@ void drawWin(Backdrop **win, UINT8 numWin){
 			win[i]->tiles
 		);
 	}
-
-	SHOW_WIN;
 }

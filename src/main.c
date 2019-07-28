@@ -10,6 +10,7 @@ void main() {
 
 		checkInput();
 		if(state.updateLogic != NULL) state.updateLogic();
+		drawWin(state.win, state.numWin);
 
 		wait_vbl_done();
 		// Draw (views draw screen based on models)
@@ -21,11 +22,11 @@ void main() {
 void vblCallback(){
 	if(hasInit) {
 		SHOW_WIN;
+
 		if(VBL_FLAG){
 			if(state.setData != NULL) state.setData();
 
 			drawBkg(state.bkg, state.numBkg);
-			drawWin(state.win, state.numWin);
 			VBL_FLAG_OFF;
 		}
 	}
