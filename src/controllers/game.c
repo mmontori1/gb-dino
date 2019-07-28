@@ -493,4 +493,5 @@ void setGameData(){
 void gameOver(){
 	clearAll();
 	move_bkg(-1, 0);
+	waitpadup();
 }
