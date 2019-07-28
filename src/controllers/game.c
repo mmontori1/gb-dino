@@ -374,13 +374,6 @@ BOOLEAN checkCollisions(Dimension *first, Dimension *second){
 	return 1;
 }
 
-UINT16 scoreCheck;
-void increaseScore(){
-	if(intervalCheck(&scoreCheck, 15)){
-		++state.score;
-	}
-}
-
 void pickEnemy(Object *enemy){
 	UINT8 type = getRand() & 1;
 	if(type){

@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include "input.h"
+#include "score.h"
 #include "state.h"
 
 #include "../helpers/mtime.h"

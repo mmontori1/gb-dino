@@ -6,7 +6,8 @@ BIN = main.gb
 OBJS = main.o \
 		helpers/global.o helpers/mtime.o helpers/clear.o helpers/loop.o \
 		models/data.o models/gameState.o \
-		controllers/input.o controllers/start.o controllers/game.o controllers/over.o controllers/state.o controllers/selector.o \
+		controllers/input.o controllers/game.o controllers/over.o controllers/score.o \
+		controllers/selector.o controllers/start.o controllers/state.o \
 		views/background.o views/window.o views/sprites.o
 
 # Compile and Assemble C Source Files into Object Files
