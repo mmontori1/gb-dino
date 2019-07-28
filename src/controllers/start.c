@@ -54,7 +54,7 @@ void initStart(){
 }
 
 void setStartData(){
-	set_win_data(10, 31, title_tiles);
+	set_win_data(10, 32, title_tiles);
 }
 
 void startGame(){

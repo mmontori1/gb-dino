@@ -19,7 +19,7 @@ Option selectorOverChoice[option_size] = {
 };
 
 #define selector_over_x 40
-#define selector_over_y 96
+#define selector_over_y 104
 
 void setupOver(){
 	LYC_REG = 0x0; //window layer off screen
