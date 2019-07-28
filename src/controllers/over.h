@@ -2,6 +2,7 @@
 #define OVER_H
 
 #include "input.h"
+#include "score.h"
 #include "state.h"
 #include "selector.h"
 

@@ -7,10 +7,15 @@ Object *over_objects[1] = {
 };
 
 Dimension over_screen_dimension;
-Backdrop over_screen;
+Dimension over_score_dimension;
 
-Backdrop *over_bkg[1] = {
-	&over_screen
+Backdrop over_screen;
+Backdrop over_score;
+
+#define num_over_bkg 2
+Backdrop *over_bkg[num_over_bkg] = {
+	&over_screen,
+	&over_score
 };
 
 Option selectorOverChoice[option_size] = {
@@ -31,7 +36,7 @@ void setupOver(){
 	up_button = selectorOverUp;
 	down_button = selectorOverDown;
 	state.bkg = over_bkg;
-	state.numBkg = 1;
+	state.numBkg = num_over_bkg;
 	state.win = NULL;
 	state.numWin = 0;
 	state.sprites = over_objects;
@@ -46,6 +51,14 @@ void initOver(){
 
 	over_screen.dimension = &over_screen_dimension;
 	over_screen.tiles = game_over_map;
+
+	over_score_dimension.x = 11;
+	over_score_dimension.y = 5;
+	over_score_dimension.width = 4;
+	over_score_dimension.height = 1;
+
+	over_score.dimension = &over_score_dimension;
+	over_score.tiles = score_map;
 }
 
 void restartGame(){
