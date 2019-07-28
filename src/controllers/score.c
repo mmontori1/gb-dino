@@ -7,8 +7,8 @@ unsigned char score_map[score_size] = {
 };
 
 void increaseScore(Backdrop *score){
-	if(intervalCheck(&scoreCheck, 100)){
-		if(state.score < 9999){
+	if(state.score < 9999){
+		if(intervalCheck(&scoreCheck, 20)){
 			++state.score;
 			updateScoreTiles();
 			score->tiles = score_map;
